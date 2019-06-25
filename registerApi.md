@@ -9,8 +9,7 @@
      vcode: ""
 
 #### **返回参数：**
-    "status": 1,
-    "msg": "参数错误"
+
 
 ### 2.请求图片验证码
 #### **请求url：**http://code.local.com/web/index/imgcode
