@@ -110,6 +110,20 @@
         totalItems: "0"
         totalPages: 1
 
+### 7.全局委托数据 webTrustAll
+#### **请求url:**http://code.local.com/mdata/trust/
+#### **请求方式:**get
+#### **参数:**
+
+#### **返回参数:**
+
+### 8.全局成交数据 webDealAll
+#### **请求url:**http://code.local.com/mdata/deal/
+#### **请求方式:**get
+#### **参数：**
+
+#### **返回参数:**
+
 
 
 
