@@ -1,5 +1,5 @@
 ### 1. 获取首页广告（webApiGetAds）
-#### **请求地址：**http://code.local.com/web/apiad/index 
+#### **请求地址：**/web/apiad/index 
 
 #### **请求方式：**post
 
@@ -58,7 +58,7 @@
     ]
 
 ### 2. 获取新闻列表（webApiGetNews）
-#### **请求地址：**http://code.local.com/web/apiad/getnewslist 
+#### **请求地址：**/web/apiad/getnewslist 
 
 #### **请求方式：**post
 
@@ -102,7 +102,7 @@
 
 
 ### 3. 获取公告列表（webApiGetNotice）
-#### **请求地址：**http://code.local.com/web/apiad/getnewslist 
+#### **请求地址：**/web/apiad/getnewslist 
 
 #### **请求方式：**post
 

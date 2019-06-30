@@ -1,5 +1,5 @@
 ### 1.用户登录(webApiloginLogin)
-#### **请求url：**http://code.local.com/web/apilogin/login
+#### **请求url：**/web/apilogin/login
 #### **请求方式：**post
 #### **参数：**
     ga: this.gacode,
@@ -14,7 +14,7 @@
     username: "130******531"
 
 ### 2.获取认证与绑定信息(webApisecurityGetuserinfo)
-#### **请求url：**http://code.local.com/web/apisecurity/getuserinfo
+#### **请求url：**/web/apisecurity/getuserinfo
 #### **请求方式：**post
 #### **参数：**
     type: "all",
@@ -41,7 +41,7 @@
     verify: ""
    
 ### 3.请求图片验证码
-#### **请求url：**http://code.local.com/web/index/imgcode
+#### **请求url：**/web/index/imgcode
 #### **请求方式：**post
 #### **返回参数：**
     msg: "success"

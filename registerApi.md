@@ -1,5 +1,5 @@
 ### 1.用户注册(webApiloginRegister)
-#### **请求url:**http://code.local.com/web/apilogin/register
+#### **请求url:**/web/apilogin/register
 #### **请求方式:**post
 #### **参数：**
      mobile: "",
@@ -11,7 +11,7 @@
 #### **返回参数：**
 
 ### 2.请求图片验证码
-#### **请求url：**http://code.local.com/web/index/imgcode
+#### **请求url：**/web/index/imgcode
 #### **请求方式：**post
 #### **返回参数：**
     msg: "success"
@@ -33,7 +33,7 @@
     verify: ""
 
 ### 3.获取短信验证码(webApiloginSendsmscode)
-#### **请求url:**http://code.local.com/web/apilogin/register
+#### **请求url:**/web/apilogin/register
 #### **请求方式:**post
 #### **参数：**
      type: "register",

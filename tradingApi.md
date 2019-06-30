@@ -1,5 +1,5 @@
 ### 1.用户资产-获取 webApiaccountList
-#### **请求url:**http://code.local.com/web/apiaccount/list
+#### **请求url:**/web/apiaccount/list
 #### **请求方式:**post
 #### **参数：**
 
@@ -22,30 +22,16 @@
     usdt: {coin: "USDT", uid: "10001", balance: "4665874.4046", lock: "94841653.4000",…}
 
 
-### 2.kline数据  webKlineData
-#### **请求url:**http://code.local.com/mdata/kline/
-#### **请求方式:**get
-
-#### **返回参数：**
-
-
-### 3.挂单 webApiEntrust
-#### **请求url:**http://code.local.com/web/apimarket/entrust
+### 2.撤单 webApiCancelTrust
+#### **请求url:**/web/apimarket/cancel
 #### **请求方式:**post
 
 #### **返回参数：**
 
 
-### 4.撤单 webApiCancelTrust
-#### **请求url:**http://code.local.com/web/apimarket/cancel
-#### **请求方式:**post
-
-#### **返回参数：**
-
-
-### 5.委托列表 webApiTrustlist
-#### **请求url:**http://code.local.com/web/apimarket/trustlist
-#### **请求方式:**post
+### 3.委托列表 webApiTrustlist
+#### **请求url:**/web/apimarket/trustlist
+####  ** 请求方式: ** post
 #### **参数：**
     board: this.pair[0],
     coin: this.pair[1]
@@ -92,14 +78,16 @@
     old: {page: [,…], next: 2, before: 1, last: 1240, current: 1, totalItems: "24798", totalPages: 1240,…}
 
 
-### 6.成交列表 webApiDeallist
-#### **请求url:**http://code.local.com/web/apimarket/deallist
+### 4.我的成交列表 webApiDeallist
+#### ** 请求url: ** /web/apimarket/deallist
 #### **请求方式：**post
 #### **参数：**
+
     board: this.pair[0],
     coin: this.pair[1]
 
 #### **返回参数：**
+
     status: 0
     data: {page: [], next: 1, before: 1, last: 1, current: 1, totalItems: "0", totalPages: 1}
         before: 1
@@ -109,21 +97,6 @@
         page: []
         totalItems: "0"
         totalPages: 1
-
-### 7.全局委托数据 webTrustAll
-#### **请求url:**http://code.local.com/mdata/trust/
-#### **请求方式:**get
-#### **参数:**
-
-#### **返回参数:**
-
-### 8.全局成交数据 webDealAll
-#### **请求url:**http://code.local.com/mdata/deal/
-#### **请求方式:**get
-#### **参数：**
-
-#### **返回参数:**
-
 
 
 
