@@ -97,6 +97,20 @@
         totalItems: "0"
         totalPages: 1
 
+### 5. 交易挂单
+
+#### uri: /web/apimarket/entrust
+
+#### method: post
+
+参数说明：
+
+
+返回示例：
+```
+
+
+```
 
 
 
