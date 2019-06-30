@@ -2,6 +2,8 @@
 
 #### uri: /mdata/trust/{market}/{coin}
 
+#### 请求方法：get
+
 - market 是指交易区，如usdt交易区；
 - coin 是指交易币种，如btc；
 
@@ -58,6 +60,8 @@
 
 #### uri: /mdata/deal/{market}/{coin}
 
+#### 请求方法：get
+
 - market 是指交易区，如usdt交易区；
 - coin 是指交易币种，如btc；
 
@@ -109,6 +113,8 @@
 ### 3. 获取k线数据
 
 #### uri: /mdata/kline/{market}\_{coin}\_{resolution}
+
+#### 请求方法：get
 
 - market是指交易区，比如usdt交易区；
 - coin是指交易币种，比如btc；

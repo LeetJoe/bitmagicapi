@@ -2,6 +2,8 @@
 
 #### uri: /web/index/boards
 
+#### 请求方法：post
+
 返回数据示例：
 ```
 {
@@ -25,6 +27,8 @@
 ### 2. 币种列表
 
 #### uri: /web/index/coins
+
+#### 请求方法：post
 
 返回数据示例：
 ```
@@ -95,6 +99,8 @@
 
 #### uri: /web/index/country
 
+#### 请求方法：post
+
 返回数据示例：
 ```
 {
@@ -115,6 +121,8 @@
 ### 5. 银行列表
 
 #### uri: /web/index/banklist
+
+#### 请求方法：post
 
 返回数据示例：
 ```
@@ -146,6 +154,8 @@
 
 #### uri: /web/index/imgcode
 
+#### 请求方法：post
+
 返回数据示例：(无)
 
 
@@ -153,6 +163,8 @@
 ### 4. 实时牌价
 
 #### uri: /web/index/ticker/{market}
+
+#### 请求方法：post
 
 参数说明：
 - market 表示交易区，如果不传，将返回全部数据。
@@ -208,6 +220,8 @@
 
 #### uri: /web/index/c2cticker
 
+#### 请求方法：post
+
 返回数据示例：
 
 ```
@@ -243,4 +257,46 @@
 - min 24h最低价；
 - bidone 买一价；
 - askone 卖一价；
+
+
+### 6. 发送邮箱验证码
+
+#### uri: /web/apilogin/sendsmscode
+
+#### method: post
+
+参数说明：
+- type 类型，必须；根据场景取值：register:注册, bindphone:绑定手机号, bindmail:绑定邮箱, assettoken:设置交易密码, findpw:找回密码, resetpass:修改登录密码, ressetassettoken:修改交易密码, vcode:其它通用验证场景
+- mobile 手机号，非必须；当非登录状态时，需要此参数；登录状态时，会自动获取用户的手机号；
+
+返回数据示例：
+
+```
+{
+    status: 0,
+    msg: 'success'
+}
+
+```
+
+### 7. 发送邮箱验证码
+
+#### uri: /web/apilogin/sendmailcode
+
+#### method: post
+
+参数说明：
+- type 类型，必须；根据场景取值：registercode:注册, registerlink:注册激活链接, withdraw:提币, resetpass:修改密码, ressetassettoken:修改交易密码, findpw:重置密码, bindmail:绑定邮箱, bindphone:绑定手机号, assettoken:设置交易密码, vcode:其它通用验证场景
+- email 邮箱地址，非必须；当非登录状态时，需要此参数；登录状态时，会自动获取用户的邮箱；
+
+
+返回数据示例：
+
+```
+{
+    status: 0,
+    msg: 'success'
+}
+
+```
 
