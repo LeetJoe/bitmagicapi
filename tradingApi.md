@@ -17,7 +17,6 @@
         ratelevel: "0"
         total: "9995.0489"
         uid: "10001"
-    cnha: {uid: "10001", balance: "9960.0000", lock: "0.0000", c2clock: "0.0000", otherlock: "0.000000000000",…}
     eth: {uid: "10001", balance: "10000.0000", lock: "0.0000", c2clock: "0.0000",…}
     usdt: {coin: "USDT", uid: "10001", balance: "4665874.4046", lock: "94841653.4000",…}
 
