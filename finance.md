@@ -167,13 +167,30 @@
 #### method: post
 
 参数说明：
-- 
+- coin 币种
 
 
 返回数据示例：
 
 ```
-
+{
+    "status":0,
+    "data":
+    [
+        {
+            "id":"21",
+            "uid":"10005",
+            "coin":"usdt",
+            "address":"1234123412341234",
+            "remark":"\u4e00\u4e2a\u65b0\u5730\u5740",
+            "status":"0",
+            "created":"2019-05-26 07:53:36",
+            "createip":"192.168.66.1",
+            "updated":"0",
+            "updateip":"0.0.0.0"
+        }
+    ]
+}
 
 ```
 
@@ -184,12 +201,22 @@
 #### method: post
 
 参数说明：
-- 
+- coin 币种
+- address 地址
+- remark 备注
+- code 手机验证码
+- ga 谷歌验证码（如果开启了谷歌认证）
 
 
 返回数据示例：
 
 ```
+
+{
+    "status":0,
+    "msg":""
+    "data":"NEW_ADDRESS_ID"
+}
 
 
 ```
@@ -201,12 +228,18 @@
 #### method: post
 
 参数说明：
-- 
+- id 要删除的地址的id，从之前返回的地址列表里获取。
 
 
 返回数据示例：
 
 ```
+
+{
+    "status":0,
+    "msg":""
+}
+
 
 
 ```
@@ -218,13 +251,21 @@
 #### method: post
 
 参数说明：
-- 
+- coin 币种
+- addressid 提币地址id
+- number 提币数量
+- assettoken 交易密码
+
 
 
 返回数据示例：
 
 ```
 
+{
+    "status":0,
+    "msg":""
+}
 
 ```
 
@@ -235,13 +276,18 @@
 #### method: post
 
 参数说明：
-- 
+- id 撤消记录的id
+- coin 币种
 
 
 返回数据示例：
 
 ```
 
+{
+    "status":0,
+    "msg":""
+}
 
 ```
 
@@ -252,13 +298,19 @@
 #### method: post
 
 参数说明：
-- 
+- bank 银行id，见 /web/index/banklist
+- branch 支行名称
+- card 卡号
 
 
 返回数据示例：
 
 ```
 
+{
+    "status":0,
+    "msg":"银行卡信息设置成功"
+}
 
 ```
 
@@ -269,13 +321,17 @@
 #### method: post
 
 参数说明：
-- 
+- alipay 支付宝账号，邮箱或手机
+- 一张通过表单提交的图片
 
 
 返回数据示例：
 
 ```
-
+{
+    "status":0,
+    "msg":"支付宝设置成功"
+}
 
 ```
 
@@ -286,14 +342,16 @@
 #### method: post
 
 参数说明：
-- 
-
+- wechatid 微信号
+- 一张通过表单提交的图片
 
 返回数据示例：
 
 ```
-
-
+{
+    "status":0,
+    "msg":"微信支付设置成功"
+}
 ```
 
 ### 12. 获取c2c用户绑定支付信息
@@ -302,13 +360,34 @@
 
 #### method: post
 
-参数说明：
-- 
+参数说明：(无)
 
 
 返回数据示例：
 
 ```
+
+{
+    "status":0,
+    "msg":"success",
+    "data":
+    {
+        "uid":"10005",
+        "alipay":"a***c@a***c.com",
+        "askrate":"-1.00000",
+        "askratelevel":"0",
+        "bank":"某某某银行",
+        "bidrate":"-1.00000",
+        "bidratelevel":"0",
+        "binding":"0",
+        "bound":"7",
+        "branch":"qwerqwerqw",
+        "card":"123******234",
+        "ctype":"1",
+        "dealcount":"0",
+        "wechatid":"wq****23"
+    }
+}
 
 
 ```
