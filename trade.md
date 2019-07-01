@@ -28,7 +28,7 @@
 #### **返回参数：**
 
 
-### 3.委托列表 webApiTrustlist
+### 3.委托列表 webApiTrustlist  (todo 需要拆成两个api)
 #### **请求url:**/web/apimarket/trustlist
 ####  ** 请求方式: ** post
 #### **参数：**
@@ -37,14 +37,15 @@
 
 #### **返回参数：**
     status: 0
-    data: {,…}
-    active: {page: [,…], next: 2, before: 1, last: 61, current: 1, totalItems: "1201", totalPages: 61,…}
+    data: {
+    active: {
         before: 1
         current: 1
         last: 61
         next: 2
-        page: [,…]
-        0: {id: "203", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
+        page: 
+        {
+            id: 123
             amount: "0.000000000000"
             category: "0"
             category_desc: "否"
@@ -63,19 +64,42 @@
             uid: "10001"
             updated: "0"
             updateip: "0"
-        1: {id: "359", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
-        2: {id: "400", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
-        3: {id: "445", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
-        4: {id: "462", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
-        5: {id: "478", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
-        6: {id: "499", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
-        7: {id: "543", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
-        8: {id: "568", uid: "10001", from: "0", category: "0", amount: "0.000000000000", deal: "0.000000000000",…}
+        }
         totalItems: "1201"
         totalPages: 61
         where: "`uid`=10001 and `status`=1"
-    old: {page: [,…], next: 2, before: 1, last: 1240, current: 1, totalItems: "24798", totalPages: 1240,…}
-
+    old: {
+        before: 1
+        current: 1
+        last: 61
+        next: 2
+        page: 
+        {
+            id: 123
+            amount: "0.000000000000"
+            category: "0"
+            category_desc: "否"
+            created: "2019-05-20 15:00:13"
+            createip: "2130706433"
+            deal: "0.000000000000"
+            from: "0"
+            id: "203"
+            price: "5785.00000000"
+            remain: "1.10750000"
+            status: "1"
+            status_desc: "交易中"
+            total: "1.10750000"
+            type: "1"
+            type_desc: "卖出"
+            uid: "10001"
+            updated: "0"
+            updateip: "0"
+        }
+        totalItems: "1201"
+        totalPages: 61
+        where: "`uid`=10001 and `status`=1"
+    }
+}
 
 ### 4.我的成交列表 webApiDeallist
 #### ** 请求url: ** /web/apimarket/deallist
@@ -104,11 +128,20 @@
 #### method: post
 
 参数说明：
-
+- board 交易区
+- coin 币种
+- category 是否市价单，0 非市价单，1 市价单
+- type 类型，0 买，1 卖
+- amount 金额，仅市价买单有效
+- number 下单数量，市价买单时无意义
+- price 价格，市价单时无意义
 
 返回示例：
 ```
-
+{
+    status: 0,
+    msg: 'success'
+}
 
 ```
 
