@@ -28,47 +28,17 @@
 #### **返回参数：**
 
 
-### 3.委托列表 webApiTrustlist  (todo 需要拆成两个api)
+### 3.委托列表 webApiTrustlist
 #### **请求url:**/web/apimarket/trustlist
 ####  ** 请求方式: ** post
 #### **参数：**
     board: this.pair[0],
-    coin: this.pair[1]
+    coin: this.pair[1],
+    status: null 或 空串：全部；active: 处理中；old: 处理完毕
 
 #### **返回参数：**
     status: 0
     data: {
-    active: {
-        before: 1
-        current: 1
-        last: 61
-        next: 2
-        page: 
-        {
-            id: 123
-            amount: "0.000000000000"
-            category: "0"
-            category_desc: "否"
-            created: "2019-05-20 15:00:13"
-            createip: "2130706433"
-            deal: "0.000000000000"
-            from: "0"
-            id: "203"
-            price: "5785.00000000"
-            remain: "1.10750000"
-            status: "1"
-            status_desc: "交易中"
-            total: "1.10750000"
-            type: "1"
-            type_desc: "卖出"
-            uid: "10001"
-            updated: "0"
-            updateip: "0"
-        }
-        totalItems: "1201"
-        totalPages: 61
-        where: "`uid`=10001 and `status`=1"
-    old: {
         before: 1
         current: 1
         last: 61
