@@ -391,3 +391,225 @@
 
 
 ```
+
+### 13. 币币账户向法币账户转币
+
+#### uri: /web/apiaccount/toc2c
+
+#### method: post
+
+参数说明：
+- coin 币种
+- number 数量
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"success",
+    "data": {newid}
+}
+
+```
+
+返回数据说明：(略)
+
+
+### 14. 法币账户向币币账户转币
+
+#### uri: /web/apiaccount/fromc2c
+
+#### method: post
+
+参数说明：
+- coin 币种
+- number 数量
+
+
+返回数据示例：
+
+```
+
+
+{
+    "status":0,
+    "msg":"success",
+    "data": {newid}
+}
+
+```
+
+返回数据说明：（略）
+
+
+### 15. 挖矿账户向币币账户转币
+
+#### uri: /web/apiaccount/frommine
+
+#### method: post
+
+参数说明：
+- coin 币种
+- number 数量
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"success",
+    "data": {newid}
+}
+
+```
+
+返回数据说明：（略）
+
+
+### 16. 法币账户向币币账户转币历史记录
+
+#### uri: /web/apiaccount/fromc2clist
+
+#### method: post
+
+参数说明：
+- coin 币种
+- cur 页码
+
+
+返回数据示例：
+
+```
+{
+    "status":0,
+    "msg":{
+        "page":[
+        {
+            "id":"9",
+            "uid":"10001",
+            "type":"1",
+            "status":"1",
+            "number":"100.00000000",
+            "created":"1562270464",
+            "createip":"3232252417",
+            "updated":"0",
+            "updateip":"0"
+        },
+        ...
+        ],
+        "next":1,
+        "before":1,
+        "last":1,
+        "current":1,
+        "totalItems":"3",
+        "totalPages":1
+    }
+}
+
+```
+
+返回数据说明：
+- uid 用户id
+- type 类型 0: 转入至c2c， 1: 从c2c转出
+- status 状态 0 划转中，1: 划转完成，2: 已撤销，3: 划转失败
+- number 数量
+- created 创建时间
+
+
+### 17. 币币账户向法币账户转币历史记录
+
+#### uri: /web/apiaccount/toc2clist
+
+#### method: post
+
+参数说明：
+- coin 币种
+- cur 页码
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":{
+        "page":[
+        {
+            "id":"9",
+            "uid":"10001",
+            "type":"1",
+            "status":"1",
+            "number":"100.00000000",
+            "created":"1562270464",
+            "createip":"3232252417",
+            "updated":"0",
+            "updateip":"0"
+        },
+        ...
+        ],
+        "next":1,
+        "before":1,
+        "last":1,
+        "current":1,
+        "totalItems":"3",
+        "totalPages":1
+    }
+}
+
+```
+
+返回数据说明：（同上）
+
+
+
+
+### 18. 挖矿账户向法币账户转币历史记录
+
+#### uri: /web/apiaccount/fromminelist
+
+#### method: post
+
+参数说明：
+- coin 币种
+- cur 页码
+
+
+返回数据示例：
+
+```
+{
+    "status":0,
+    "msg":{
+        "page":[
+        {
+            "id":"9",
+            "uid":"10001",
+            "type":"1",
+            "status":"1",
+            "number":"100.00000000",
+            "created":"1562270464",
+            "createip":"3232252417",
+            "updated":"0",
+            "updateip":"0"
+        },
+        ...
+        ],
+        "next":1,
+        "before":1,
+        "last":1,
+        "current":1,
+        "totalItems":"3",
+        "totalPages":1
+    }
+}
+
+```
+
+返回数据说明：（基本同上，区别如下）
+- type: 0 币币账户转到挖矿账户，1 挖矿账户转到币币账户。
