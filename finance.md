@@ -613,3 +613,64 @@
 
 返回数据说明：（基本同上，区别如下）
 - type: 0 币币账户转到挖矿账户，1 挖矿账户转到币币账户。
+
+
+
+### 19. 挖矿收益记录
+
+#### uri: /web/apiaccount/getProfitList
+
+#### method: post
+
+参数说明：
+- coin 币种
+- cur 页码
+
+
+返回数据示例：
+
+```
+{
+    "status":0,"msg":
+    {
+        "page":[
+            {
+                "id":"2",
+                "uid":"10001",
+                "type":"0",
+                "status":"1",
+                "number":"5.000800000000000000",
+                "stime":"0",
+                "etime":"0",
+                "remark":null,
+                "created":"1561817696",
+                "updated":"0"
+            },
+            {
+                "id":"1",
+                "uid":"10001",
+                "type":"0",
+                "status":"1",
+                "number":"5.000800000000000000",
+                "stime":"0",
+                "etime":"0",
+                "remark":null,
+                "created":"1561817620",
+                "updated":"0"
+            }
+        ],
+        "next":1,
+        "before":1,
+        "last":1,
+        "current":1,
+        "totalItems":"2",
+        "totalPages":1
+    }
+}
+
+
+```
+
+返回数据说明：（基本同上，区别如下）
+- type: 0 交易返佣，1 锁定释放，2 锁定释放-直接邀请人，3 锁定释放-间接邀请人 10 交易返佣-直接邀请人 11 交易返佣-间接邀请人
+- status: 
