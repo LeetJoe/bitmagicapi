@@ -259,7 +259,7 @@
 - askone 卖一价；
 
 
-### 6. 发送邮箱验证码
+### 6. 发送手机验证码
 
 #### uri: /web/apilogin/sendsmscode
 
