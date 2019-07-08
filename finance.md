@@ -22,41 +22,68 @@
             "uid":"10004",
             "balance":"10000.0000",
             "lock":"0.0000",
+	        "toc2c_lock":"0.0000",
+	        "fromc2c_lock":"0.0000",
+	        "c2c_balance":"0.0000",
             "c2clock":"0.0000",
+            "mine_balance":"0.0000",
+            "mine_lock":"0.0000",
+            "evermined":"0",
             "otherlock":"0.0000000000000000",
             "ratelevel":"0",
             "rate":"0.001",
             "coin":"ETH",
-            "total":"10000.0000"
         },
         "btc":
         {
             "uid":"10004",
             "balance":"9999.9999",
             "lock":"0.0000",
+	        "toc2c_lock":"0.0000",
+	        "fromc2c_lock":"0.0000",
+	        "c2c_balance":"0.0000",
             "c2clock":"0.0000",
+            "mine_balance":"0.0000",
+            "mine_lock":"0.0000",
+            "evermined":"0",
             "otherlock":"0.000000000000000000",
             "ratelevel":"0",
             "rate":"0.001",
             "coin":"BTC",
-            "total":"9999.9999"
         },
         "usdt":
         {
             "uid":"10004",
             "balance":"99990000.8000",
             "lock":"0.0000",
+	        "toc2c_lock":"0.0000",
+	        "fromc2c_lock":"0.0000",
+	        "c2c_balance":"0.0000",
             "c2clock":"0.0000",
+            "mine_balance":"0.0000",
+            "mine_lock":"0.0000",
+            "evermined":"0",
             "otherlock":"0.000000000000",
             "ratelevel":"0",
             "rate":"0.001",
             "coin":"USDT",
-            "total":"99990000.8000"
         }
     }
 }
 
 ```
+
+返回数据说明：
+- balance: 币币账户余额
+- lock: 币币账户锁定
+- toc2c_lock： 用户从币币账户划转到c2c账户的锁定数量。因为这类划转是延迟到账。
+- fromc2c_lock: 用户从c2c账户转到币币账户的锁定数量。因为目前这类划转是立即到账，所以这个字段实际上没用。
+- mine_balance: 挖矿账户余额，可以划转至币币账户，没有锁定期；
+- mine_lock: 挖矿账户锁定，目前只有系统赠送的zyc会进入这个数字。
+- evermined: 标记用户是否进行过挖矿释放交易，后台做的记号，目前前端不用关心。
+- otherlock: 备用字段。
+- rate: 费率，如果值不小于0，则以此值计算用户交易手续费；如果小于0，以下方ratelevel定手续费；
+- ratelevel: 见关于rate的说明，费率等级，一般0表示0.001，数字越大费率越低；
 
 ### 2. 我的提币地址
 

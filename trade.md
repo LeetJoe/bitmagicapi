@@ -1,26 +1,3 @@
-### 1.用户资产-获取 webApiaccountList
-#### **请求url:**/web/apiaccount/list
-#### **请求方式:**post
-#### **参数：**
-
-#### **返回参数：**
-    msg: "获取用户资产成功"
-    status: 0
-    data: {eth: {uid: "10001", balance: "10000.0000", lock: "0.0000", c2clock: "0.0000",…},…}
-    btc: {coin: "BTC", uid: "10001", balance: "7242.1691", lock: "2752.8797", otherlock: "0.000000000000000000",…}
-        balance: "7242.1691"
-        c2clock: "2752.8797"
-        coin: "BTC"
-        lock: "2752.8797"
-        otherlock: "0.000000000000000000"
-        rate: "0.001"
-        ratelevel: "0"
-        total: "9995.0489"
-        uid: "10001"
-    eth: {uid: "10001", balance: "10000.0000", lock: "0.0000", c2clock: "0.0000",…}
-    usdt: {coin: "USDT", uid: "10001", balance: "4665874.4046", lock: "94841653.4000",…}
-
-
 ### 2.撤单 webApiCancelTrust
 #### **请求url:**/web/apimarket/cancel
 #### **请求方式:**post

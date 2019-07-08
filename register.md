@@ -31,13 +31,3 @@
     username: "130******531"
     usertype: "0"
     verify: ""
-
-### 3.获取短信验证码(webApiloginSendsmscode)
-#### **请求url:**/web/apilogin/register
-#### **请求方式:**post
-#### **参数：**
-     type: "register",
-     mobile: this.ruleForm1.mobile
-
-#### **返回参数：**
-    
