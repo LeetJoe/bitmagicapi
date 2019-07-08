@@ -325,6 +325,8 @@
 #### method: post
 
 参数说明：
+- assettoken 资金密码
+- code 手机验证码
 - bank 银行id，见 /web/index/banklist
 - branch 支行名称
 - card 卡号
@@ -348,6 +350,8 @@
 #### method: post
 
 参数说明：
+- assettoken 资金密码
+- code 手机验证码
 - alipay 支付宝账号，邮箱或手机
 - 一张通过表单提交的图片
 
@@ -369,6 +373,8 @@
 #### method: post
 
 参数说明：
+- assettoken 资金密码
+- code 手机验证码
 - wechatid 微信号
 - 一张通过表单提交的图片
 
