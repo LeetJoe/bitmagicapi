@@ -25,7 +25,7 @@
 #### **请求url：**/web/apisecurity/getuserinfo
 #### **请求方式：**post
 #### **参数：**
-    type: "all" // 默认
+    type: "all" // 不能为空
 #### **返回参数：**
 
 ```
@@ -88,3 +88,30 @@
 }
 ```
 
+
+### 4. 手机/邮箱验证码直接登录
+
+#### uri: /web/apilogin/codelogin
+
+#### 请求方法： post
+
+#### 请求参数
+- email: 邮箱，email和mobile只需要传一个参数
+- mobile: 手机号，email和mobile只需要传一个，都传的时候email优先。
+- code: 手机/邮箱验证码
+- ga: 当要求ga时，输入ga码
+
+返回示例：
+
+```
+{
+    msg: "登录成功"
+    status: 0
+    data: {
+        token: "rk98pki16rbrmf1995hfveetkfkokjvv"
+        uid: "10001"
+        username: "130******531"
+    }
+}
+
+```
