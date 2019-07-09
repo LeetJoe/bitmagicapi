@@ -196,3 +196,54 @@
 #### **请求方式：**post
 
 返回示例：（无）
+
+
+
+### 6. 获取文章内容
+
+#### uri: /web/apiad/view
+
+#### **请求方式：**post
+
+请求参数
+- id 从前面的新闻、公告列表等里拿到的文章id
+
+返回示例：
+
+```
+{
+    "status":0,
+    "msg":"success",
+    "data":{
+        "id":"1",
+        "uid":"100",
+        "category":"0",
+        "lang":"",
+        "title":"Proxychains4 的使用",
+        "author":"某某某",
+        "origin":"csdn",
+        "abstract":"一小段摘要",
+        "labels":"proxychains4",
+        "weight":"0",
+        "status":"1",
+        "destroy":"0",
+        "content":"一大段内容",
+        "created":"0",
+        "createip":"0.0.0.0",
+        "updated":"0",
+        "updateip":"0.0.0.0"
+    }
+}
+```
+
+返回说明：
+- uid 创建者uid
+- category 分类. 0 公告，1 新闻，2 常见问题，3 注册协议
+- title 标题
+- author 作者
+- origin 来源
+- abstract 摘要
+- labels 标签
+- weight 权重，可以用来排序
+- content 带html标签的正文内容
+- created 创建时间
