@@ -300,3 +300,110 @@
 
 ```
 
+### 8. 获取提币限额
+
+#### uri: /web/apilogin/sendmailcode
+
+#### method: post
+
+参数说明：
+- coin 币种，如果不传，则返回全部配置
+- vip 是否vip, 0 否，1 是
+- level 用户认证等级
+- nation 国家，目前没用，固定传 0 即可
+
+
+返回示例：
+
+```
+// 如果 coin 参数留空
+{
+    "status":0,
+    "data":[
+        {
+            "id":"1",
+            "coin":"usdt",
+            "level":"0",
+            "vip":"0",
+            "single":"0.00",
+            "day":"0.00",
+            "week":"0.00",
+            "month":"0.00",
+            "nation":"0",
+            "status":"0",
+            "updated":"0"
+        },
+        {
+            "id":"2",
+            "coin":"usdt",
+            "level":"1",
+            "vip":"0",
+            "single":"10000.00",
+            "day":"30000.00",
+            "week":"100000.00",
+            "month":"300000.00",
+            "nation":"0",
+            "status":"0",
+            "updated":"0"
+        },
+        {
+            "id":"3",
+            "coin":"usdt",
+            "level":"2",
+            "vip":"0",
+            "single":"50000.00",
+            "day":"150000.00",
+            "week":"500000.00",
+            "month":"1500000.00",
+            "nation":"0",
+            "status":"0",
+            "updated":"0"
+        },
+        {
+            "id":"4",
+            "coin":"usdt",
+            "level":"3",
+            "vip":"0",
+            "single":"50000.00",
+            "day":"200000.00",
+            "week":"1000000.00",
+            "month":"3000000.00",
+            "nation":"0",
+            "status":"0",
+            "updated":"0"
+        },
+        ...
+    ]
+}
+
+// 如果 coin 参数不留空
+
+
+{
+    "status":0,
+    "data":
+    {
+        "id":"2",
+        "coin":"usdt",
+        "level":"1",
+        "vip":"0",
+        "single":"10000.00",
+        "day":"30000.00",
+        "week":"100000.00",
+        "month":"300000.00",
+        "nation":"0",
+        "status":"0",
+        "updated":"0"
+    }
+}
+
+```
+
+返回数据说明：
+- coin 币种
+- level 用户认证等级
+- vip 是否vip
+- single 单次限额
+- day 日限额
+- week 周限额
+- month 月限额
