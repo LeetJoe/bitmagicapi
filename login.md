@@ -1,13 +1,17 @@
-### 1.用户登录(webApiloginLogin)
-#### **请求url：**/web/apilogin/login
-#### **请求方式：**post
-#### **参数：**
-    ga: 谷歌验证码, 如果绑定则需要
-    password: 密码,
-    captcha: 图片验证码,
-    email: 邮箱，email和mobile只需要传一个参数
-    mobile: 手机号，email和mobile只需要传一个，都传的时候email优先。
-#### **返回参数：**
+### 1.用户登录
+
+#### uri：/web/apilogin/login
+
+#### post
+
+参数说明：
+- ga: 谷歌验证码, 如果绑定则需要
+- password: 密码,
+- captcha: 图片验证码,
+- email: 邮箱，email和mobile只需要传一个参数
+- mobile: 手机号，email和mobile只需要传一个，都传的时候email优先。
+
+返回数据示例：
 
 ```
 {
@@ -21,14 +25,20 @@
 }
 ```
 
-### 2.获取认证与绑定信息(webApisecurityGetuserinfo)
-#### **请求url：**/web/apisecurity/getuserinfo
-#### **请求方式：**post
-#### **参数：**
-    type: "all" // 不能为空
-#### **返回参数：**
+
+### 2.获取用户信息
+
+#### 请求uri: /web/apisecurity/getuserinfo
+
+#### 请求方式: post
+
+参数说明：
+- type: "all" // 不能为空，取值代表获取哪方面的信息，是传all时返回内容的子集。可取值：email, mobile, ga, password, assettoken, level, c2c
+
+返回示例：
 
 ```
+
 {
     msg: "success"
     status: 0
@@ -51,6 +61,7 @@
         verify: ""
     }
 }
+
 ```
 
 参数说明：

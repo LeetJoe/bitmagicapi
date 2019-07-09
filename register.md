@@ -1,33 +1,23 @@
 ### 1.用户注册(webApiloginRegister)
+
 #### **请求url:**/web/apilogin/register
+
 #### **请求方式:**post
+
 #### **参数：**
-     mobile: "",
-     password: "",
-     repassword: "",
-     code: "",
-     vcode: ""
+- mobile: 手机号,
+- email: 邮箱,
+- password: 密码,
+- repassword: 重复密码,
+- vcode: 手机/邮箱验证码，如果email和手机号同时存在，优先使用email。
 
 #### **返回参数：**
 
-### 2.请求图片验证码
-#### **请求url：**/web/index/imgcode
-#### **请求方式：**post
-#### **返回参数：**
-    msg: "success"
-    status: 0
-    data: {uid: "10001", regtype: "1", username: "130******531", email: 1, emailname: "a***c@a***1.com",…}
-    assettoken: 1
-    bound: "1"
-    email: 1
-    emailname: "a***c@a***1.com"
-    ga: {bind: 0, open: 0}
-    level: 1
-    mobile: 1
-    mobilename: "130******531"
-    password: 1
-    regtype: "1"
-    uid: "10001"
-    username: "130******531"
-    usertype: "0"
-    verify: ""
+```
+{
+    "status":0,
+    "msg":"success",
+    "data": {newid}
+}
+
+```
