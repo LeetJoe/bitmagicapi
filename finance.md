@@ -320,6 +320,8 @@
 
 ### 9. 绑定银行卡信息
 
+前置要求：完成初级实名认证，绑定手机号，设置资金密码。
+
 #### uri: /web/apiaccount/bindBankInfo
 
 #### method: post
@@ -345,6 +347,8 @@
 
 ### 10. 绑定支付宝信息
 
+前置要求：完成初级实名认证，绑定手机号，设置资金密码。
+
 #### uri: /web/apiaccount/bindAlipayInfo
 
 #### method: post
@@ -367,6 +371,8 @@
 ```
 
 ### 11. 绑定微信支付信息
+
+前置要求：完成初级实名认证，绑定手机号，设置资金密码。
 
 #### uri: /web/apiaccount/bindWechatInfo
 
@@ -434,6 +440,7 @@
 参数说明：
 - coin 币种
 - number 数量
+- assettoken 资金密码
 
 
 返回数据示例：
@@ -460,6 +467,7 @@
 参数说明：
 - coin 币种
 - number 数量
+- assettoken 资金密码
 
 
 返回数据示例：
@@ -487,6 +495,7 @@
 参数说明：
 - coin 币种
 - number 数量
+- assettoken 资金密码
 
 
 返回数据示例：
