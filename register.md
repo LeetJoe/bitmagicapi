@@ -17,8 +17,7 @@
 ```
 {
     "status":0,
-    "msg":"success",
-    "data": {newid}
+    "msg":"success"
 }
 
 ```
