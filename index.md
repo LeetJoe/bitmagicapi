@@ -1,4 +1,34 @@
-### 1. 交易区列表
+### 1. 图片验证码
+
+#### uri: /web/index/imgcode
+
+#### 请求方法：get
+
+返回数据示例：(无)
+
+### 2. 币种列表
+
+#### uri: /web/index/coins
+
+#### 请求方法：post
+
+返回数据示例：
+```
+{
+    status: 0,
+    msg: "success",
+    data: [
+        "eth",
+        "btc",
+        "usdt",
+        "mco"
+    ]
+}
+
+```
+
+
+### 3. 交易区列表
 
 #### uri: /web/index/boards
 
@@ -24,28 +54,7 @@
 }
 ```
 
-### 2. 币种列表
-
-#### uri: /web/index/coins
-
-#### 请求方法：post
-
-返回数据示例：
-```
-{
-    status: 0,
-    msg: "success",
-    data: [
-        "eth",
-        "btc",
-        "usdt",
-        "mco"
-    ]
-}
-
-```
-
-### 3. 交易对配置信息
+### 4. 交易对配置信息
 
 #### uri: /web/index/coinconf/board/{board}/coin/{coin}
 
@@ -95,72 +104,8 @@
 | pstep | 挂单价格步长 |
 | apitrust | 是否开启api挂单 |
 
-### 4. 国家列表
 
-#### uri: /web/index/country
-
-#### 请求方法：post
-
-返回数据示例：
-```
-{
-    status: 0,
-    msg: 'success',
-    data: {
-        AC: "阿森松岛",
-        AD: "安道尔",
-        AE: "阿拉伯联合酋长国",
-        AF: "阿富汗",
-        AG: "安提瓜和巴布达",
-        AI: "安圭拉",
-        AL: "阿尔巴尼亚",
-    }
-}
-```
-
-### 5. 银行列表
-
-#### uri: /web/index/banklist
-
-#### 请求方法：post
-
-返回数据示例：
-```
-
-{
-    status: 0,
-    msg: "success",
-    data: {
-        "中国银行",
-        "中国农业银行",
-        "中国建设银行",
-        "中国工商银行",
-        "招商银行",
-        "交通银行",
-        "中信银行",
-        "光大银行",
-        "华夏银行",
-        "民生银行",
-        "兴业银行",
-        "广发银行",
-        "平安银行",
-        "浦发银行"
-    }
-}
-
-```
-
-### 6. 图片验证码
-
-#### uri: /web/index/imgcode
-
-#### 请求方法：post
-
-返回数据示例：(无)
-
-
-
-### 4. 实时牌价
+### 5. 实时牌价
 
 #### uri: /web/index/ticker/{market}
 
@@ -216,7 +161,8 @@
 - 详细数据含义为： [最新价, 买一价, 卖一价, 最高价, 最低价, 成交量, 成交额, 昨日(24h前)收盘价, 今日(24h前)开盘价]. 
 
 
-### 5. c2c实时牌价
+
+### 6. c2c实时牌价
 
 #### uri: /web/index/c2cticker
 
@@ -259,48 +205,176 @@
 - askone 卖一价；
 
 
-### 6. 发送手机验证码
+### 7. 银行列表
 
-#### uri: /web/apilogin/sendsmscode
+#### uri: /web/index/banklist
+
+#### 请求方法：post
+
+返回数据示例：
+```
+
+{
+    status: 0,
+    msg: "success",
+    data: {
+        "中国银行",
+        "中国农业银行",
+        "中国建设银行",
+        "中国工商银行",
+        "招商银行",
+        "交通银行",
+        "中信银行",
+        "光大银行",
+        "华夏银行",
+        "民生银行",
+        "兴业银行",
+        "广发银行",
+        "平安银行",
+        "浦发银行"
+    }
+}
+
+```
+
+
+### 8. 找回密码
+
+#### uri: /web/index/findpw
+
+#### 请求方法： post
+
+#### 请求参数：
+- email 邮箱地址，与ecode配合使用；
+- ecode 邮箱验证码；
+- mobile 手机号，与mcode配合使用；
+- mcode 手机验证码；
+- capcha 图片验证码，必须；
+- password 新密码，必须；
+- repassword 重新新密码，必须；
+
+说明：其中email + ecode 和 mobile + mcode 两组选择任意一组即可。
+
+返回示例：
+
+```
+{
+    status: 0,
+    msg: 'success',
+}
+```
+
+
+### 9. 交易市场
+
+#### uri: /web/index/c2centrustlist
 
 #### method: post
 
 参数说明：
-- type 类型，必须；根据场景取值：register:注册, bindphone:绑定手机号, bindmail:绑定邮箱, assettoken:设置交易密码, findpw:找回密码, resetpass:修改登录密码, ressetassettoken:修改交易密码, vcode:其它通用验证场景
-- mobile 手机号，非必须；当非登录状态时，需要此参数；登录状态时，会自动获取用户的手机号；
+- board 交易区
+- coin 币种
+
 
 返回数据示例：
 
 ```
 {
-    status: 0,
-    msg: 'success'
+    "status":0,
+    "data":[
+        {
+            "id":"19",
+            "uid":"10001",
+            "type":"1",
+            "paytype":"银行卡",
+            "targettid":"0",
+            "total":"200000.0000",
+            "minmatch":"300.0000",
+            "remain":"195000.0000",
+            "price":"7.0100",
+            "status":"1",
+            "created":"2019-06-24 06:38:51",
+            "createip":"3232252417",
+            "updated":"0",
+            "updateip":"0",
+            "mate_name":"**(52分钟)",
+            "type_desc":"买入",
+            "dealcount":1,
+            "dealtime":"15分钟",
+            "status_desc":"已支付"
+        },
+        {
+            "id":"18",
+            "uid":"10001",
+            "type":"1",
+            "paytype":"支付宝",
+            "targettid":"0",
+            "total":"200000.0000",
+            "minmatch":"300.0000",
+            "remain":"192000.0000",
+            "price":"6.8900",
+            "status":"2",
+            "created":"2019-06-24 06:38:24",
+            "createip":"3232252417",
+            "updated":"0",
+            "updateip":"0",
+            "mate_name":"**(52分钟)",
+            "type_desc":"卖出",
+            "dealcount":1,
+            "dealtime":"15分钟",
+            "status_desc":"已确认"
+        }
+    ]
 }
 
 ```
 
-### 7. 发送邮箱验证码
+返回数据说明：
+- id 记录 id
+- uid 用户uid
+- type 类型，0 买 1卖
+- paytype 支付方式，逗号分隔的支付方式，有三种：银行卡、支付宝、微信
+- targettid 目标挂单id，定向吃单的时候传此值
+- total 总量
+- minmatch 最小匹配量
+- remain 剩余量
+- price 价格
+- status 状态码
+- created 创建时间（北京时间）
+- createip 创建ip（int类型需要自行转换）
+- updated 更新时间（时间戳）
+- updateip 更新ip
+- mate_name 挂单人姓名（打码）
+- type_desc 挂单类型描述（买入/卖出）
+- dealcount 已成交数量
+- dealtime 平均成交时间
+- status_desc 状态描述
 
-#### uri: /web/apilogin/sendmailcode
+### 9. 国家列表
 
-#### method: post
+#### uri: /web/index/country
 
-参数说明：
-- type 类型，必须；根据场景取值：registercode:注册, registerlink:注册激活链接, withdraw:提币, resetpass:修改密码, ressetassettoken:修改交易密码, findpw:重置密码, bindmail:绑定邮箱, bindphone:绑定手机号, assettoken:设置交易密码, vcode:其它通用验证场景
-- email 邮箱地址，非必须；当非登录状态时，需要此参数；登录状态时，会自动获取用户的邮箱；
-
+#### 请求方法：post
 
 返回数据示例：
-
 ```
 {
     status: 0,
-    msg: 'success'
+    msg: 'success',
+    data: {
+        AC: "阿森松岛",
+        AD: "安道尔",
+        AE: "阿拉伯联合酋长国",
+        AF: "阿富汗",
+        AG: "安提瓜和巴布达",
+        AI: "安圭拉",
+        AL: "阿尔巴尼亚",
+    }
 }
-
 ```
 
-### 8. 获取提币限额
+
+### 10. 获取提币限额
 
 #### uri: /web/apilogin/sendmailcode
 

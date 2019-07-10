@@ -1,158 +1,137 @@
-### 1. 获取全局挂单列表
 
-#### uri: /mdata/trust/{market}/{coin}
+### 1. 交易挂单
 
-#### 请求方法：get
+#### uri: /web/apimarket/entrust
 
-- market 是指交易区，如usdt交易区；
-- coin 是指交易币种，如btc；
+#### method: post
 
-例：要取得最近的usdt_btc交易对的挂单列表，需要使用uri: /mdata/trust/usdt/btc
+参数说明：
+- board 交易区
+- coin 币种
+- category 是否市价单，0 非市价单，1 市价单
+- type 类型，0 买，1 卖
+- amount 金额，仅市价买单有效
+- number 下单数量，市价买单时无意义
+- price 价格，市价单时无意义
 
-数据格式示例：
-
+返回示例：
 ```
-
 {
-    bid: 
-        [
-            901,
-            1,
-            1
-        ],
-        [
-            900,
-            2,
-            3
-        ],
-        [
-            899,
-            3,
-            6
-        ]
-    ask:
-        [
-            902,
-            1,
-            1
-        ],
-        [
-            903,
-            2,
-            3
-        ],
-        [
-            904,
-            3,
-            6
-        ]
-}
-    
-```
-
-说明：
-- bid表示买单，ask表示卖单；
-- 每一组三个数字分别代表:价格，数量，累加量。其中买单价格按倒序排，卖单是正序排；累加量为按照此排序，从第一单到当前单累加的挂单数量。
-
-
-
-### 2. 获取全局成交列表
-
-#### uri: /mdata/deal/{market}/{coin}
-
-#### 请求方法：get
-
-- market 是指交易区，如usdt交易区；
-- coin 是指交易币种，如btc；
-
-例：要取得最近的usdt_btc交易对的成交，需要使用uri: /mdata/deal/usdt/btc
-
-返回数据格式示例：
-
-```
-
-{
-    max: 12230,
-    min: 11540,
-    sum: 2702.5698,
-    volume: 32241400.889898,
-    d: [
-    [
-        1561870466000,
-        12070.97,
-        0.0146,
-        "1",
-        539813
-    ],
-    [
-        1561870466000,
-        12070.97,
-        0.0008,
-        "1",
-        539812
-    ],
-    [
-        1561870466000,
-        12070.29,
-        0.0138,
-        "1",
-        539811
-    ]
+    status: 0,
+    msg: 'success'
 }
 
 ```
 
-返回数据说明：
-- max: 24小时内的最高价；
-- min: 24小时内的最低价；
-- sum: 24小时的成交量；
-- volume: 24小时的成交额；
-- d: 最近50条成交记录，按时间倒序。数组内数据的含义为：[毫秒时间, 价格，数量，taker(0=>买，1=>卖)，系统内部成交id]
+### 2.撤单
+####  请求url: /web/apimarket/cancel
+####  请求方式: post
 
+参数说明：
+- id id
 
-### 3. 获取k线数据
-
-#### uri: /mdata/kline/{market}\_{coin}\_{resolution}
-
-#### 请求方法：get
-
-- market是指交易区，比如usdt交易区；
-- coin是指交易币种，比如btc；
-- resolution是指k线的时间间隔。
-
-例：要取得usdt交易区btc的5分钟k线数据，需要使用 uri: /mdata/kline/usdt_btc_5m
-
-支持的resolution有：
-1m, 5m, 15m, 30m, 1h, 8h, 1d
-
-k线数据暂时不支持增量获取。
-
-返回数据示例：
+返回示例：
+```
+{
+    status: 0,
+    msg: 'success'
+}
 
 ```
 
-[
-    [
-        1561824240000,
-        11942.03,
-        11950.28,
-        11942.03,
-        11944.74,
-        0.0809
-    ],
-    [
-        1561824300000,
-        11947,
-        11974.35,
-        11947,
-        11972.12,
-        0.5411
-    ],
-    ...
-]
 
+
+### 3. 委托列表
+#### 请求uri: /web/apimarket/trustlist
+#### 请求方式: post
+请求参数：
+- board: 交易区,
+- coin: 交易币种,
+- status: null 或 空串：全部；active: 处理中；old: 处理完毕
+
+返回示例：
+```
+{
+    status: 0
+    data: {
+        before: 1
+        current: 1
+        last: 61
+        next: 2
+        page: [
+            {
+                id: 123
+                amount: "0.000000000000"
+                category: "0"
+                category_desc: "否"
+                created: "2019-05-20 15:00:13"
+                createip: "2130706433"
+                deal: "0.000000000000"
+                from: "0"
+                id: "203"
+                price: "5785.00000000"
+                remain: "1.10750000"
+                status: "1"
+                status_desc: "交易中"
+                total: "1.10750000"
+                type: "1"
+                type_desc: "卖出"
+                uid: "10001"
+                updated: "0"
+                updateip: "0"
+            },
+            ...
+        ]
+        totalItems: "1201"
+        totalPages: 61
+        where: "`uid`=10001 and `status`=1"
+    }
+}
 ```
 
-返回数据说明：
 
-- 每组数据表示： [毫秒表示的时间，时段内首单成交价，时段内最高价，时段内最低价，时段内尾单成交价，时段内成效量]
+### 4.我的成交列表
+#### 请求url: /web/apimarket/deallist
+#### 请求方式： post
+
+参数说明：
+- board: 交易区,
+- coin: 币种
+
+返回示例：
+```
+{
+    status: 0
+    data: {
+        page: [
+            {
+                "id":"40261",
+                "price":"100.00000000",
+                "number":"100.00000000",
+                "taker":"0",
+                "bid_tid":"0",
+                "bid_uid":"10001",
+                "bid_fee":"0.001000000000",
+                "ask_tid":"0",
+                "ask_uid":"10002",
+                "ask_fee":"0.010000000000",
+                "created":"1562227319"
+            },
+            ...
+        ], 
+        next: 1, 
+        before: 1, 
+        last: 1,
+        current: 1, 
+        totalItems: "0", 
+        totalPages: 1
+    }
+    before: 1
+    current: 1
+    last: 1
+    next: 1
+    page: []
+    totalItems: "0"
+    totalPages: 1
+}
+```

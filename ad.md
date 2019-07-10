@@ -1,12 +1,14 @@
-### 1. 获取首页广告（webApiGetAds）
-#### **请求地址：**/web/apiad/index 
+### 1. 获取首页广告
+#### uri：/web/apiad/index 
 
-#### **请求方式：**post
+#### 请求方式：post
 
-#### **请求参数：**
-    cur: 1
+参数说明：
+- cur: 1
 
-#### **返回参数：**
+返回示例：
+```
+{
     "status": 0,
     "msg": "success",
     "data": [
@@ -56,16 +58,22 @@
             "destroy": "0"
         }
     ]
+}
 
-### 2. 获取新闻列表（webApiGetNews）
-#### **请求地址：**/web/apiad/getnewslist 
+```
 
-#### **请求方式：**post
+### 2. 获取公告列表
+#### 请求地址：/web/apiad/getOfficeList 
 
-#### **请求参数：**
-    cur: 1
+#### 请求方式：post
 
-#### **返回参数：**
+请求参数说明：
+- cur: 页码, 默认 1
+- pagesize: 页内数量，默认 10
+
+返回示例：
+```
+{
     "status": 0,
     "msg": "success",
     "data": {
@@ -99,17 +107,22 @@
         "pageSize": 10,
         "link": "/web/apiad/getnewslist&p="
     }
+}
+```
 
 
-### 3. 获取公告列表（webApiGetNotice）
-#### **请求地址：**/web/apiad/getnewslist 
+### 3. 获取新闻列表
+#### 请求地址：/web/apiad/getnewslist 
 
-#### **请求方式：**post
+#### 请求方式：post
 
-#### **请求参数：**
-    cur: 1
+参数说明：
+- cur: 1， 页码
+- pagesize: 页内数量，默认10
 
-#### **返回参数：**
+返回示例：
+```
+{
     "status": 0,
     "msg": "success",
     "data": {
@@ -143,18 +156,20 @@
         "pageSize": 10,
         "link": "/web/apiad/getofficelist&p="
     }
-    
+}
+``` 
 
+### 4. 获取常见问题列表
+#### 请求地址：/web/apiad/getproblemlist
 
-### 4. 获取常见问题列表（webApiGetProblemList）
-#### **请求地址：**/web/apiad/getproblemlist
+#### 请求方式：post
 
-#### **请求方式：**post
+参数说明：
+- cur: 1
 
-#### **请求参数：**
-    cur: 1
-
-#### **返回参数：**
+返回示例：
+```
+{
     "status": 0,
     "msg": "success",
     "data": {
@@ -188,10 +203,11 @@
         "pageSize": 10,
         "link": "/web/apiad/getofficelist&p="
     }
-
+}
+```
 ### 5. 获取用户协议
 
-#### uri: /web/apiad/getuseragree
+#### uri: /web/apiad/getAgree
 
 #### **请求方式：**post
 

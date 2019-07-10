@@ -1,5 +1,431 @@
 
-### 1. 获取认证与绑定信息
+
+### 1. 手机号-绑定
+
+#### uri: /web/apisecurity/bindmobile
+
+#### method: post
+
+参数说明：
+- mobile 手机号 
+- ecode 邮箱号码
+- mcode 手机号码
+- ga 谷歌验证码（如果开启了ga验证）
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"绑定手机成功"
+}
+
+// 失败情形示例
+
+{
+    "status":1,
+    "msg":"该手机号码已经被占用"
+}
+
+// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
+
+{
+    "status":7,
+    "msg":"谷歌验证码不能为空"
+}
+
+
+```
+### 2. 手机号-修改
+
+#### uri: /web/apisecurity/resetmobile
+
+#### method: post
+
+参数说明：
+- oldcode 旧手机号验证码
+- mobile 新手机号码
+- code 新手机号验证码
+
+返回数据示例：
+
+```
+{
+    "status":0,
+    "msg":"修改手机号码成功"
+}
+```
+
+
+### 3. 邮箱-绑定
+
+#### uri: /web/apisecurity/bindemail
+
+#### method: post
+
+参数说明：
+- email 邮箱地址
+- mcode 手机验证码
+- ecode 邮箱验证码
+- ga 谷歌验证码（如果开启了谷哥验证）
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"绑定邮箱成功"
+}
+
+// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
+
+{
+    "status":7,
+    "msg":"谷歌验证码不能为空"
+}
+
+```
+
+
+### 4. 谷歌验证码-绑定
+
+#### uri: /web/apisecurity/bindga
+
+#### method: post
+
+参数说明：
+- secret 密码
+- gcode 谷歌验证码
+- code 手机/邮箱验证码
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"绑定谷歌验证码成功"
+}
+
+```
+
+
+### 4. 谷歌验证码-关闭
+
+#### uri: /web/apisecurity/closega
+
+#### method: post
+
+参数说明：
+- gcode 谷歌验证码
+- code 手机/邮箱验证码
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"关闭谷歌验证码成功"
+}
+
+```
+
+### 5. 谷歌验证码-开启
+
+#### uri: /web/apisecurity/openga
+
+#### method: post
+
+参数说明：
+- gcode ga验证码
+- code 手机/邮箱验证码（依据注册方式而不同）
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"启用谷歌验证码成功"
+}
+
+```
+
+### 6. 谷歌验证码-修改
+
+#### uri: /web/apisecurity/editga
+
+#### method: post
+
+参数说明：
+- oldgcode 旧的ga验证码
+- gcode 新的ga验证码
+- secret 密码
+- code 手机/邮箱验证码（依据注册方式不同）
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"重置谷歌验证码成功"
+}
+
+```
+
+### 7. 生成谷歌验证密钥
+
+#### uri: /web/apisecurity/createga
+
+#### method: post
+
+参数说明：(无)
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"success",
+    "data":
+    {
+        "secret":"TST4V66KWDXRUU2Z",
+        "qrCodeUrl":"otpauth://totp/testapi.bitmagic.pro?secret=TST4V66KWDXRUU2Z"
+    }
+}
+
+```
+
+返回参数说明：
+- secret 密码
+- qrcodeurl qr code url
+
+### 8. 登录密码-修改
+
+#### uri: /web/apisecurity/editpw
+
+#### method: post
+
+参数说明：
+- oldpw 原登录密码
+- newpw 新登录密码
+- renewpw 重复新登录密码
+- mcode 手机验证码，根据用户信息的regtype判断，如果是0，使用邮箱验证码，如果是1，使用手机验证码。
+- ecode 邮箱验证码，见关于mcode的说明。
+- ga 谷歌验证码（如果开启了谷哥验证）
+
+返回数据示例：
+
+```
+{
+    "status":0,
+    "msg":"修改密码成功"
+}
+
+// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
+
+{
+    "status":7,
+    "msg":"谷歌验证码不能为空"
+}
+
+```
+
+### 9. 资金密码-设置
+
+#### uri: /web/apisecurity/setassettoken
+
+#### method: post
+
+参数说明：
+- assettoken 交易密码
+- reassettoken 重复交易密码
+- mcode 手机验证码
+- ga 谷歌验证码（如果开启了谷歌验证）
+
+
+返回数据示例：
+
+```
+{
+    "status":0,
+    "msg":"设置资金密码成功"
+}
+
+// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
+
+{
+    "status":7,
+    "msg":"谷歌验证码不能为空"
+}
+
+```
+
+
+### 10. 资金密码-修改
+
+#### uri: /web/apisecurity/editassettoken
+
+#### method: post
+
+参数说明：
+- oldassettoken 旧交易密码
+- assettoken 新交易密码
+- reassettoken 重新新交易密码
+- mcode 手机号码
+- ga 谷哥验证码，当开启了ga的时候会要求输入
+
+
+返回数据示例：
+
+```
+{
+    "status":0,
+    "msg":"设置资金密码成功"
+}
+
+// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
+
+{
+    "status":7,
+    "msg":"谷歌验证码不能为空"
+}
+
+```
+
+
+
+### 11. 实名认证-第一步
+
+#### uri: /web/apisecurity/authprimary
+
+#### method: post
+
+参数说明：
+- idtype 认证类型 1 => 身份证， 2 => 护照
+- idnumber 认证号码 
+- country 国家代码，请参考 /web/index/country 接口
+- realname 真实姓名
+- code 手机验证码
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"绑定邮箱成功"
+}
+
+// 如果用户尚未绑定手机，会返回状态码 6 
+
+{
+    "status":6,
+    "msg":"请先绑定手机号"
+}
+
+```
+
+
+### 12. 实名认证-第二步 上传证件照
+
+#### uri: /web/apisecurity/authadvance
+
+#### method: post
+
+参数说明：
+需要同时上传三张图片，顺序为： 身份证正面，身份证反面，手持身份证照片
+
+
+返回数据示例：
+
+```
+{
+    "status":0,
+    "msg":"上传文件成功"
+}
+
+// 失败情形示例
+
+{
+    "status":6,
+    "msg":"上传文件失败[m]"
+}
+
+
+```
+
+
+### 13. 登录历史
+
+#### uri: /web/apisecurity/loginlog
+
+#### method: post
+
+参数说明：
+- p 页码
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"success",
+    "data":
+    {
+        "item":
+        [
+            {
+                "id":"162",
+                "uid":"10001",
+                "logintime":"1561960565",
+                "loginip":"122.233.232.233"
+            },
+            ...
+        ],
+        "current":1,
+        "next":2,
+        "before":1,
+        "last":17,
+        "totalPages":17,
+        "totalItems":"162",
+        "pageSize":10,
+        "link":"/web/apisecurity/loginlog&p="
+    }
+}
+
+```
+
+- tiem 记录列表
+- uid 用户uid
+- logintime 登录时间
+- loginip 登录ip
+- current 当前页
+- next 下一页
+- before 前一页
+- last 最后一页
+- totalPages 总页数
+- totalItems 总记录数
+- pageSize 页面大小
+- link 页面间跳转的链接
+
+
+### 14. 获取认证与绑定信息
 
 #### uri: /web/apisecurity/getuserinfo
 
@@ -56,394 +482,4 @@
 - usertype c2c用户身份，1 表示普通用户，2 表示商家。
 - bound 用户已设置的收款方式。1 银行卡， 2 支付宝， 4 微信。 bound = 5 = 1 + 4 表示同时设置了银行卡和微信支付
 
-### 2. 登录历史
 
-#### uri: /web/apisecurity/loginlog
-
-#### method: post
-
-参数说明：
-- p 页码
-
-
-返回数据示例：
-
-```
-
-{
-    "status":0,
-    "msg":"success",
-    "data":
-    {
-        "item":
-        [
-            {
-                "id":"162",
-                "uid":"10001",
-                "logintime":"1561960565",
-                "loginip":"122.233.232.233"
-            },
-            ...
-        ],
-        "current":1,
-        "next":2,
-        "before":1,
-        "last":17,
-        "totalPages":17,
-        "totalItems":"162",
-        "pageSize":10,
-        "link":"/web/apisecurity/loginlog&p="
-    }
-}
-
-```
-
-- tiem 记录列表
-- uid 用户uid
-- logintime 登录时间
-- loginip 登录ip
-- current 当前页
-- next 下一页
-- before 前一页
-- last 最后一页
-- totalPages 总页数
-- totalItems 总记录数
-- pageSize 页面大小
-- link 页面间跳转的链接
-
-
-
-### 3. 生成谷歌验证密钥
-
-#### uri: /web/apisecurity/createga
-
-#### method: post
-
-参数说明：(无)
-
-
-返回数据示例：
-
-```
-
-{
-    "status":0,
-    "msg":"success",
-    "data":
-    {
-        "secret":"TST4V66KWDXRUU2Z",
-        "qrCodeUrl":"otpauth://totp/testapi.bitmagic.pro?secret=TST4V66KWDXRUU2Z"
-    }
-}
-
-```
-
-返回参数说明：
-- secret 密码
-- qrcodeurl qr code url
-
-### 4. 谷歌验证码-绑定
-
-#### uri: /web/apisecurity/bindga
-
-#### method: post
-
-参数说明：
-- secret 密码
-- gcode 谷歌验证码
-- code 手机/邮箱验证码
-
-
-返回数据示例：
-
-```
-
-{
-    "status":0,
-    "msg":"绑定谷歌验证码成功"
-}
-
-```
-
-### 5. 谷歌验证码-修改
-
-#### uri: /web/apisecurity/editga
-
-#### method: post
-
-参数说明：
-- oldgcode 旧的ga验证码
-- gcode 新的ga验证码
-- secret 密码
-- code 手机/邮箱验证码（依据注册方式不同）
-
-
-返回数据示例：
-
-```
-
-{
-    "status":0,
-    "msg":"重置谷歌验证码成功"
-}
-
-```
-
-### 6. 谷歌验证码-开启
-
-#### uri: /web/apisecurity/openga
-
-#### method: post
-
-参数说明：
-- gcode ga验证码
-- code 手机/邮箱验证码（依据注册方式而不同）
-
-
-返回数据示例：
-
-```
-
-{
-    "status":0,
-    "msg":"启用谷歌验证码成功"
-}
-
-```
-
-
-### 7. 资金密码-设置
-
-#### uri: /web/apisecurity/setassettoken
-
-#### method: post
-
-参数说明：
-- assettoken 交易密码
-- reassettoken 重复交易密码
-- mcode 手机验证码
-- ga 谷歌验证码（如果开启了谷歌验证）
-
-
-返回数据示例：
-
-```
-{
-    "status":0,
-    "msg":"设置资金密码成功"
-}
-
-// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
-
-{
-    "status":7,
-    "msg":"谷歌验证码不能为空"
-}
-
-```
-
-
-### 8. 资金密码-修改
-
-#### uri: /web/apisecurity/editassettoken
-
-#### method: post
-
-参数说明：
-- oldassettoken 旧交易密码
-- assettoken 新交易密码
-- reassettoken 重新新交易密码
-- mcode 手机号码
-- ga 谷哥验证码，当开启了ga的时候会要求输入
-
-
-返回数据示例：
-
-```
-{
-    "status":0,
-    "msg":"设置资金密码成功"
-}
-
-// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
-
-{
-    "status":7,
-    "msg":"谷歌验证码不能为空"
-}
-
-```
-
-### 9. 登录密码-修改
-
-#### uri: /web/apisecurity/editpw
-
-#### method: post
-
-参数说明：
-- oldpw 原登录密码
-- newpw 新登录密码
-- renewpw 重复新登录密码
-- mcode 手机验证码，根据用户信息的regtype判断，如果是0，使用邮箱验证码，如果是1，使用手机验证码。
-- ecode 邮箱验证码，见关于mcode的说明。
-- ga 谷歌验证码（如果开启了谷哥验证）
-
-返回数据示例：
-
-```
-{
-    "status":0,
-    "msg":"修改密码成功"
-}
-
-// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
-
-{
-    "status":7,
-    "msg":"谷歌验证码不能为空"
-}
-
-```
-
-### 10. 邮箱-绑定
-
-#### uri: /web/apisecurity/bindemail
-
-#### method: post
-
-参数说明：
-- email 邮箱地址
-- mcode 手机验证码
-- ecode 邮箱验证码
-- ga 谷歌验证码（如果开启了谷哥验证）
-
-
-返回数据示例：
-
-```
-
-{
-    "status":0,
-    "msg":"绑定邮箱成功"
-}
-
-// 如果开启了谷歌验证却没有提供ga参数，会返回状态码 7 
-
-{
-    "status":7,
-    "msg":"谷歌验证码不能为空"
-}
-
-```
-
-### 11. 实名认证-第一步
-
-#### uri: /web/apisecurity/authprimary
-
-#### method: post
-
-参数说明：
-- idtype 认证类型 1 => 身份证， 2 => 护照
-- idnumber 认证号码 
-- country 国家代码，请参考 /web/index/country 接口
-- realname 真实姓名
-- code 手机验证码
-
-
-返回数据示例：
-
-```
-
-{
-    "status":0,
-    "msg":"绑定邮箱成功"
-}
-
-// 如果用户尚未绑定手机，会返回状态码 6 
-
-{
-    "status":6,
-    "msg":"请先绑定手机号"
-}
-
-```
-
-### 12. 实名认证-第二步 上传证件照
-
-#### uri: /web/apisecurity/authadvance
-
-#### method: post
-
-参数说明：
-需要同时上传三张图片，顺序为： 身份证正面，身份证反面，手持身份证照片
-
-
-返回数据示例：
-
-```
-{
-    "status":0,
-    "msg":"上传文件成功"
-}
-
-// 失败情形示例
-
-{
-    "status":6,
-    "msg":"上传文件失败[m]"
-}
-
-
-```
-
-### 13. 手机号-绑定
-
-#### uri: /web/apisecurity/bindmobile
-
-#### method: post
-
-参数说明：
-- mobile 手机号 
-- ecode 邮箱号码
-- mcode 手机号码
-- ga 谷歌验证码（如果开启了ga验证）
-
-
-返回数据示例：
-
-```
-
-{
-    "status":0,
-    "msg":"绑定手机成功"
-}
-
-// 失败情形示例
-
-{
-    "status":1,
-    "msg":"该手机号码已经被占用"
-}
-
-
-
-```
-
-### 14. 手机号-修改
-
-#### uri: /web/apisecurity/resetmobile
-
-#### method: post
-
-参数说明：
-- oldcode 旧手机号验证码
-- mobile 新手机号码
-
-返回数据示例：
-
-```
-{
-    "status":0,
-    "msg":"修改手机号码成功"
-}
-```

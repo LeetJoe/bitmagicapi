@@ -34,3 +34,101 @@ status已定义值说明
 对需要验证身份的api，需要在header里增加token: {TOKEN}
 
 {TOKEN}是在登录成功时返回的口令。
+
+
+### 接口一览：
+#### account
+- /web/apiaccount/list, 用户资产-获取
+- /web/apiaccount/bindBankInfo, 绑定银行卡信息
+- /web/apiaccount/bindAlipayInfo, 绑定支付宝信息
+- /web/apiaccount/bindWechatInfo, 绑定微信支付信息
+- /web/apiaccount/getC2cBindInfo, 获取c2c用户绑定支付信息
+- /web/apiaccount/toc2c, 币币账户向法币账户转币
+- /web/apiaccount/fromc2c, 法币账户向币币账户转币
+- /web/apiaccount/frommine, 挖矿账户向币币账户转币
+- /web/apiaccount/fromc2clist, 法币账户向币币账户转币历史记录
+- /web/apiaccount/toc2clist, 币币账户向法币账户转币历史记录
+- /web/apiaccount/fromminelist, 挖矿账户向法币账户转币历史记录
+- /web/apiaccount/getProfitList, 挖矿收益记录
+
+
+#### ad
+- /web/apiad/index, 获取首页广告
+- /web/apiad/getOfficeList, 获取公告列表
+- /web/apiad/getnewslist, 获取新闻列表
+- /web/apiad/getproblemlist, 获取常见问题列表
+- /web/apiad/getAgre, 获取用户协议
+- /web/apiad/view, 获取文章内容
+
+
+#### c2cmarket
+- /web/apic2cmarket/entrust, 挂单
+- /web/apic2cmarket/cancel, 撤单
+- /web/apic2cmarket/confirm, 成交确认。确认支付与确认收款都是这个方法
+- /web/apic2cmarket/dealcancel, 成交撤消。只有买方用户可以撤单。
+- /web/apic2cmarket/trustlist, 我的委托列表
+- /web/apic2cmarket/newdeal, 我的待处理成交
+- /web/apic2cmarket/deallist, 我的历史成交列表
+
+
+#### index
+- /web/index/imgcode, 图片验证码
+- /web/index/coins, 币种列表
+- /web/index/boards, 交易区列表
+- /web/index/coinconf/board/{board}/coin/{coin}, 交易对配置信息
+- /web/index/ticker/{market}, 实时牌价
+- /web/index/c2cticker, c2c实时牌价
+- /web/index/banklist, 银行列表
+- /web/index/findpw, 找回密码
+- /web/index/c2centrustlist, 交易市场
+- /web/index/country, 国家列表
+- /web/apilogin/sendmailcode, 获取提币限额
+
+#### login
+- /web/apilogin/register, 用户注册
+- /web/apilogin/codelogin, 手机/邮箱验证码直接登录
+- /web/apilogin/login, 用户登录
+- /web/apilogin/sendsmscode, 发送手机验证码
+- /web/apilogin/sendmailcode, 发送邮箱验证码
+- /web/apilogin/loginout, 用户登出
+
+
+#### market
+- /web/apimarket/entrust, 交易挂单
+- /web/apimarket/cancel, 撤单
+- /web/apimarket/trustlist, 委托列表
+- /web/apimarket/deallist, 我的成交列表
+
+
+#### mdata
+- /mdata/trust/{market}/{coin}, 获取全局挂单列表
+- /mdata/deal/{market}/{coin}, 获取全局成交列表
+- /mdata/kline/{market}\_{coin}\_{resolution}, 获取k线数据
+
+#### security
+- /web/apisecurity/bindmobile, 手机号-绑定
+- /web/apisecurity/resetmobile, 手机号-修改
+- /web/apisecurity/bindemail, 邮箱-绑定
+- /web/apisecurity/bindga, 谷歌验证码-绑定
+- /web/apisecurity/closega, 谷歌验证码-关闭
+- /web/apisecurity/openga, 谷歌验证码-开启
+- /web/apisecurity/editga, 谷歌验证码-修改
+- /web/apisecurity/createga, 生成谷歌验证密钥
+- /web/apisecurity/editpw, 登录密码-修改
+- /web/apisecurity/setassettoken, 资金密码-设置
+- /web/apisecurity/editassettoken, 资金密码-修改
+- /web/apisecurity/authprimary, 实名认证-第一步
+- /web/apisecurity/authadvance, 实名认证-第二步 上传证件照
+- /web/apisecurity/loginlog, 登录历史
+- /web/apisecurity/getuserinfo, 获取认证与绑定信息
+
+
+#### wallet
+- /web/apiwallet/getaddr, 获取充值地址
+- /web/apiwallet/addaddress, 添加转出币地址
+- /web/apiwallet/deladdress, 删除转出币地址
+- /web/apiwallet/addrlist, 获取转出地址列表
+- /web/apiwallet/transout, 提币申请
+- /web/apiwallet/cancel, 撤消提币申请
+- /web/apiwallet/history, 转币历史记录，入账出账共用此api
+- 
