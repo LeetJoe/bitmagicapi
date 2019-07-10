@@ -3,6 +3,8 @@
 
 #### uri: /web/apimarket/entrust
 
+约束：需要初级实名认证
+
 #### method: post
 
 参数说明：
@@ -13,6 +15,7 @@
 - amount 金额，仅市价买单有效
 - number 下单数量，市价买单时无意义
 - price 价格，市价单时无意义
+- assettoken 交易密码，输入一次成功后，30分钟内不需要重复输入
 
 返回示例：
 ```

@@ -33,6 +33,8 @@
 - coin 币种
 - address 地址
 - remark 地址备注，不要超过10个字
+- assettoken 资金密码
+- ga 如果绑定了ga需要输入
 
 返回示例：
 ```
