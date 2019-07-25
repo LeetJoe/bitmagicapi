@@ -485,3 +485,92 @@
 返回数据说明：（基本同上，区别如下）
 - type: 0 交易返佣，1 锁定释放，2 锁定释放-直接邀请人，3 锁定释放-间接邀请人 10 交易返佣-直接邀请人 11 交易返佣-间接邀请人
 - status: 
+
+
+### 13. c2c与币币账户间的转币记录
+
+#### uri: /web/apiaccount/c2ctranslist
+
+#### method: post
+
+参数说明：
+- coin 币种，现在只支持usdt
+- cur 页码，一页10条。目前不支持自定义条数
+
+返回数据示例：
+```
+
+{
+    "status":0,
+    "msg":{
+        "page":[
+        {
+            "id":"9",
+            "uid":"10001",
+            "type":"1",
+            "type_desc":"转出",
+            "status":"1",
+            "status_desc":"成功",
+            "number":"100.00000000",
+            "created":"1562270464",
+            "createip":"3232252417",
+            "updated":"0",
+            "updateip":"0"
+        },
+        ...
+        ],
+        "next":1,
+        "before":1,
+        "last":1,
+        "current":1,
+        "totalItems":"3",
+        "totalPages":1
+    }
+}
+
+```
+
+参数说明：
+- type 0 表示转入c2c账户，1 表示转出自c2c账户。前端可以直接使用type_desc来获取类型描述。
+- status 0 表示处理中，1表示处理成功，2表示已取消，3表示处理失败。前端直接使用status_desc来获取状态描述。
+
+### 14. 获取邀请数量
+
+#### uri: /web/apiaccount/getInviteInfo
+
+#### 请求方法：post
+
+参数说明：（无）
+
+返回示例：
+
+```
+
+{
+    "status":0,
+    "msg":"success",
+    "data": [1, 4]]
+}
+
+```
+
+返回说明：
+-data  data[0] 表示直接邀请人数，data[1] 表示间接邀请人数
+
+
+### 15. 获取活动收益记录
+
+#### uri: /web/apiaccount/getActlogList
+
+#### 请求方法：post
+
+参数说明：
+
+- cur: 页码
+
+返回示例：
+```
+
+
+
+```

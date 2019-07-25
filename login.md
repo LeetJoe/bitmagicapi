@@ -10,6 +10,7 @@
 - password: 密码,
 - repassword: 重复密码,
 - vcode: 手机/邮箱验证码，如果email和手机号同时存在，优先使用email。
+- icode: 邀请码，非必须，用于确认邀请关系。
 
 
 返回示例：
