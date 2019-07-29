@@ -54,6 +54,36 @@
 }
 ```
 
+### 3-1. 交易区列表
+
+#### uri: /web/index/keyboards
+
+#### 请求方法：post
+
+返回数据示例：
+```
+{
+    status: 0,
+    msg: "success",
+    data: {
+        [
+            name: btc,
+            coins: [
+                eth,
+                zyc
+            ]
+        ],
+        [
+            name: eth,
+            coins: [
+                btc,
+                zyc
+            ]
+        ]
+    }
+}
+```
+
 ### 4. 交易对配置信息
 
 #### uri: /web/index/coinconf/board/{board}/coin/{coin}
