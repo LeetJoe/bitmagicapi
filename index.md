@@ -65,22 +65,22 @@
 {
     status: 0,
     msg: "success",
-    data: {
-        [
+    data: [
+        {
             name: btc,
             coins: [
                 eth,
                 zyc
             ]
-        ],
-        [
+        },
+        {
             name: eth,
             coins: [
                 btc,
                 zyc
             ]
-        ]
-    }
+        }
+    ]
 }
 ```
 
@@ -414,17 +414,17 @@
 {
     status: 0,
     msg: 'success',
-    data: {
-        [
+    data: [
+        {
             ab: "CN",
             name: "中国"
-        ],
-        [
+        },
+        {
             ab: "AC",
             name: "阿森松岛"
-        ]
+        }
         ...
-    }
+    ]
 }
 ```
 
