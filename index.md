@@ -403,6 +403,31 @@
 }
 ```
 
+### 9-1. 国家列表
+
+#### uri: /web/index/keycountry
+
+#### 请求方法：post
+
+返回数据示例：
+```
+{
+    status: 0,
+    msg: 'success',
+    data: {
+        [
+            ab: "CN",
+            name: "中国"
+        ],
+        [
+            ab: "AC",
+            name: "阿森松岛"
+        ]
+        ...
+    }
+}
+```
+
 
 ### 10. 获取提币限额
 
