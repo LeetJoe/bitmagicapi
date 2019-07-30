@@ -691,6 +691,41 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 返回示例：
 ```
 
-
+{
+    "status": 0,
+    "data": {
+        "page": [
+            {
+                "id": "12",
+                "uid": "10002",
+                "actid": "1",
+                "category": "10",
+                "coin": "zyc",
+                "status": "1",
+                "number": "8000.00000000",
+                "remark": "",
+                "created": "1563072451",
+                "createip": "0",
+                "updated": "0",
+                "updateip": "0",
+                "act_name": "活动名称",
+                "category_desc": "注册赠送",
+                "status_desc": "已发放"
+            }
+        ],
+        "next": 1,
+        "before": 1,
+        "last": 1,
+        "current": 1,
+        "totalItems": "1",
+        "totalPages": 1
+    }
+}
 
 ```
+
+返回说明：
+- category 类别，见category_desc的内容即可
+- status 状态，见status_desc的内容即可
+- coin 赠送的币种
+- number 赠送的币数量
