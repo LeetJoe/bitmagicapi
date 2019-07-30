@@ -28,9 +28,6 @@
             "c2clock":"0.0000",
             "mine_balance":"0.0000",
             "mine_lock":"0.0000",
-            "evermined":"0",
-            "otherlock":"0.0000000000000000",
-            "ratelevel":"0",
             "rate":"0.001",
             "coin":"ETH",
         },
@@ -45,9 +42,6 @@
             "c2clock":"0.0000",
             "mine_balance":"0.0000",
             "mine_lock":"0.0000",
-            "evermined":"0",
-            "otherlock":"0.000000000000000000",
-            "ratelevel":"0",
             "rate":"0.001",
             "coin":"BTC",
         },
@@ -62,9 +56,6 @@
             "c2clock":"0.0000",
             "mine_balance":"0.0000",
             "mine_lock":"0.0000",
-            "evermined":"0",
-            "otherlock":"0.000000000000",
-            "ratelevel":"0",
             "rate":"0.001",
             "coin":"USDT",
         }
@@ -84,6 +75,93 @@
 - otherlock: 备用字段。
 - rate: 费率，如果值不小于0，则以此值计算用户交易手续费；如果小于0，以下方ratelevel定手续费；
 - ratelevel: 见关于rate的说明，费率等级，一般0表示0.001，数字越大费率越低；
+
+
+### 1-1. 用户资产-获取
+
+#### uri: /web/apiaccount/keylist
+
+#### method: post
+
+参数说明：
+- type 账户类型。trade：币币账户，mine: 挖矿账户，c2c/otc：otc账户（c2c与otc是同样的含义）。一般而言，币币账户与挖矿账户包含全币种，otc账户只包含otc币种，目前只有usdt。
+
+
+返回数据示例：
+
+```
+// 当未指定type或者type无法识别时
+{
+    "status":0,
+    "msg":"success",
+    "data":
+    {
+        {
+            "uid":"10004",
+            "balance":"10000.0000",
+            "lock":"0.0000",
+            "toc2c_lock":"0.0000",
+            "fromc2c_lock":"0.0000",
+            "c2c_balance":"0.0000",
+            "c2clock":"0.0000",
+            "mine_balance":"0.0000",
+            "mine_lock":"0.0000",
+            "rate":"0.001",
+            "coin":"ETH",
+        },
+        {
+            "uid":"10004",
+            "balance":"9999.9999",
+            "lock":"0.0000",
+            "toc2c_lock":"0.0000",
+            "fromc2c_lock":"0.0000",
+            "c2c_balance":"0.0000",
+            "c2clock":"0.0000",
+            "mine_balance":"0.0000",
+            "mine_lock":"0.0000",
+            "rate":"0.001",
+            "coin":"BTC",
+        },
+        {
+            "uid":"10004",
+            "balance":"99990000.8000",
+            "lock":"0.0000",
+            "toc2c_lock":"0.0000",
+            "fromc2c_lock":"0.0000",
+            "c2c_balance":"0.0000",
+            "c2clock":"0.0000",
+            "mine_balance":"0.0000",
+            "mine_lock":"0.0000",
+            "rate":"0.001",
+            "coin":"USDT",
+        }
+    }
+}
+
+// 当指定了type时，只返回type指定的资产信息. type = c2c
+{
+    "status":0,
+    "msg":"success",
+    "data":
+    {
+        {
+            "uid":"10004",
+            "balance":"10000.0000",
+            "lock":"0.0000",
+            "to_lock":"0.0000",
+            "from_lock":"0.0000",
+            "rate":"0.001",
+            "coin":"USDT",
+        },
+    }
+}
+
+
+```
+
+返回数据说明：
+基本同上，指定了账户类型时，返回的balance与lock都是指定账户类型的余额与冻结。
+to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 
 
 ### 2. 绑定银行卡信息
