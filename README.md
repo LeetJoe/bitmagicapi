@@ -27,6 +27,10 @@ status已定义值说明
 | 7  | 需要验证谷歌验证码 |
 | 8  | 需要设置收款方式 |
 | 9  | 需要开启收款方式 |
+| 11  | 需要先完成一级实名认证 |
+| 12  | 需要先完成二级实名认证 |
+| 13  | 需要先完成三级实名认证 |
+| 14  | 需要验证图片验证码 |
 | 51  | 正在生成钱包地址，需要等待 |
 | 100  | 用户未登录 |
 | 999  | 系统异常 |
@@ -38,15 +42,15 @@ status已定义值说明
 
 ### 接口一览：
 #### account
-- /web/apiaccount/list, 用户资产-获取
-- /web/apiaccount/bindBankInfo, 绑定银行卡信息
-- /web/apiaccount/bindAlipayInfo, 绑定支付宝信息
-- /web/apiaccount/bindWechatInfo, 绑定微信支付信息
-- /web/apiaccount/getC2cBindInfo, 获取c2c用户绑定支付信息
-- /web/apiaccount/toc2c, 币币账户向法币账户转币
-- /web/apiaccount/fromc2c, 法币账户向币币账户转币
-- /web/apiaccount/frommine, 挖矿账户向币币账户转币
-- /web/apiaccount/fromc2clist, 法币账户向币币账户转币历史记录
+- /web/apiaccount/list, 用户资产-获取。用于用户的资产页面，展示用户所有资产信息。
+- /web/apiaccount/bindBankInfo, 绑定银行卡信息。提交以绑定银行卡信息。
+- /web/apiaccount/bindAlipayInfo, 绑定支付宝信息。提交以绑定支付宝信息。
+- /web/apiaccount/bindWechatInfo, 绑定微信支付信息。提交以绑定微信支付信息。
+- /web/apiaccount/getC2cBindInfo, 获取c2c用户绑定支付信息。获取当前绑定的所有支付信息（银行卡，支付宝，微信）。
+- /web/apiaccount/toc2c, 币币账户向法币账户转币。提交从币币账户向法币账户（OTC）转移资产的申请。
+- /web/apiaccount/fromc2c, 法币账户向币币账户转币。提交从法币账户（OTC）转移资产的申请。
+- /web/apiaccount/frommine, 挖矿账户向币币账户转币。提交从挖矿账户向币币账户转币的申请。
+- /web/apiaccount/fromc2clist, 法币账户向币币账户转币历史记录。
 - /web/apiaccount/toc2clist, 币币账户向法币账户转币历史记录
 - /web/apiaccount/fromminelist, 挖矿账户向法币账户转币历史记录
 - /web/apiaccount/getProfitList, 挖矿收益记录
@@ -82,7 +86,8 @@ status已定义值说明
 - /web/index/findpw, 找回密码
 - /web/index/c2centrustlist, 交易市场
 - /web/index/country, 国家列表
-- /web/apilogin/sendmailcode, 获取提币限额
+- /web/index/outlimit, 获取提币限额
+- /web/index/coininfo, 获取币种配置/信息
 
 #### login
 - /web/apilogin/register, 用户注册
