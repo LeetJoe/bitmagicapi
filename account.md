@@ -292,6 +292,34 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 - wechatid 绑定的微信账号
 
 
+### 6-0. 资产账户间互转（以下6，7，8接口的集成接口）
+
+#### uri: /web/apiaccount/transfer
+
+#### method: post
+
+参数说明：
+- coin 币种
+- type 划转类型。toc2c: 从币币账户转向otc账户，fromc2c: 从otc账户转向币币账户，frommine: 从挖矿账户转到币币账户
+- number 数量
+- assettoken 资金密码
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0,
+    "msg":"success",
+    "data": {newid}
+}
+
+```
+
+返回数据说明：(略)
+
+
 ### 6. 币币账户向法币账户转币
 
 #### uri: /web/apiaccount/toc2c
