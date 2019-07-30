@@ -300,7 +300,7 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 
 参数说明：
 - coin 币种
-- type 划转类型。toc2c: 从币币账户转向otc账户，fromc2c: 从otc账户转向币币账户，frommine: 从挖矿账户转到币币账户
+- type 划转类型。toc2c: 从币币账户转向otc账户，fromc2c: 从otc账户转向币币账户，frommine: 从挖矿账户转到币币账户. c2c相关的划转当前只支持usdt币种。
 - number 数量
 - assettoken 资金密码
 
