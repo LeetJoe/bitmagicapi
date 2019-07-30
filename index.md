@@ -940,3 +940,38 @@ board 交易区，可选。目前只有cny交易区。
 - planoutdate 计划在平台中开启转出的时间
 - releaseamount 发行总量
 - blocktime 区块时间
+
+
+### 12. 获取人民币汇率
+
+#### uri: /web/index/cnyrate
+
+#### method: post/get
+
+参数说明：无
+
+返回示例：
+```
+{
+    "status": 0,
+    "data": [
+        {
+            "coin": "usdt",
+            "price": "6.8900"
+        },
+        {
+            "coin": "eth",
+            "price": "1435.60"
+        },
+        {
+            "coin": "btc",
+            "price": "65523.41"
+        },
+        {
+            "coin": "zyc",
+            "price": "11.71"
+        }
+    ]
+}
+
+```

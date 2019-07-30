@@ -88,6 +88,7 @@ status已定义值说明
 - /web/index/country, 国家列表
 - /web/index/outlimit, 获取提币限额
 - /web/index/coininfo, 获取币种配置/信息
+- /web/index/cnyrate, 获取各币种人民币汇率
 
 #### login
 - /web/apilogin/register, 用户注册
