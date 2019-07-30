@@ -33,6 +33,7 @@
 #### 请求参数
 - email: 邮箱，email和mobile只需要传一个参数
 - mobile: 手机号，email和mobile只需要传一个，都传的时候email优先。
+- password: 密码
 - code: 手机/邮箱验证码
 - ga: 当要求ga时，输入ga码
 
