@@ -507,7 +507,7 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 #### method: post
 
 参数说明：
-- coin 币种
+- coin 币种, 可选，如果留空也返回所有
 - cur 页码
 
 
@@ -522,6 +522,7 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
             "id":"9",
             "uid":"10001",
             "type":"1",
+            "coin":"btc",
             "status":"1",
             "number":"100.00000000",
             "created":"1562270464",
