@@ -54,6 +54,7 @@ status已定义值说明
 - /web/apiaccount/toc2clist, 币币账户向法币账户转币历史记录
 - /web/apiaccount/fromminelist, 挖矿账户向法币账户转币历史记录
 - /web/apiaccount/getProfitList, 挖矿收益记录
+- /web/apiaccount/cancelToC2c, 撤消从币币账户向c2c账户的划转申请
 
 
 #### ad

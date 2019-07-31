@@ -730,3 +730,28 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 - status 状态，见status_desc的内容即可
 - coin 赠送的币种
 - number 赠送的币数量
+
+
+### 16. 撤消从币币账户向c2c账户的划转申请。
+
+目前只有从币币账户向c2c账户转币才会有等待期和撤消操作，其它划转都是立即生效。
+
+#### uri: /web/apiaccount/cancelToC2c
+
+#### 请求方法：post
+
+参数说明：
+- coin， 币种，目前只支持usdt
+- id, 要撤消的申请记录的id
+
+返回示例：
+
+```
+
+{
+    "status":0,
+    "msg":"success"
+}
+
+
+```
