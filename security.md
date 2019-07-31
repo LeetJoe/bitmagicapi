@@ -493,3 +493,27 @@
 - bound 用户已设置的收款方式。1 银行卡， 2 支付宝， 4 微信。 bound = 5 = 1 + 4 表示同时设置了银行卡和微信支付
 
 
+
+### 15. 按注册方式发送验证码
+
+#### uri: /web/apisecurity/sendcode
+
+#### method: post
+
+参数说明：
+- type 发送类型，见apilogin中sendSmsCode与sendMailCode的说明，这里可以固定使用vcode
+
+
+返回数据示例
+```
+
+{
+    "status":0,
+    "msg":"success",
+    "data": "{regtype}"
+}
+
+```
+
+返回数据说明：
+- data 其值实际上是用户的注册类型，用于提示用户查收的验证码类型。0表示发送的是邮件验证码，1表示发送的是手机验证码。

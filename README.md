@@ -127,6 +127,7 @@ status已定义值说明
 - /web/apisecurity/authadvance, 实名认证-第二步 上传证件照
 - /web/apisecurity/loginlog, 登录历史
 - /web/apisecurity/getuserinfo, 获取认证与绑定信息
+- /web/apisecurity/sendcode, 根据用户注册方式发送验证码。如果是手机注册，发送手机验证码；如果是邮箱注册，发送邮箱验证码。
 
 
 #### wallet

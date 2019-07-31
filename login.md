@@ -118,7 +118,7 @@
 #### method: post
 
 参数说明：
-- type 类型，必须；根据场景取值：registercode:注册, registerlink:注册激活链接, withdraw:提币, resetpass:修改密码, ressetassettoken:修改交易密码, findpw:重置密码, bindmail:绑定邮箱, bindphone:绑定手机号, assettoken:设置交易密码, vcode:其它通用验证场景
+- type 类型，必须；根据场景取值：register:注册, registerlink:注册激活链接, withdraw:提币, resetpass:修改密码, ressetassettoken:修改交易密码, findpw:重置密码, bindmail:绑定邮箱, bindphone:绑定手机号, assettoken:设置交易密码, vcode:其它通用验证场景
 - email 邮箱地址，非必须；当非登录状态时，需要此参数；登录状态时，会自动获取用户的邮箱；
 
 
