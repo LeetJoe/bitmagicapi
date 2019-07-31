@@ -214,10 +214,16 @@
 
 返回数据说明：
 - txid 交易id，如果是以 nonce 开头的内容，表示尚未被处理，展示为空即可
+- admin 审核管理员uid
+- walletid 仅转出有效，表示地址本中的id
+- txindex 交易在区块中的位置
 - confirm 确认数量
 - amount 数量
+- wallet 地址
+- msg 失败原因(暂不需要显示)
+- remark 备注(内部使用不显示)
 - transfee 手续费
-- pay 扣除手续费后实际的转出数量
+- pay 扣除手续费后实际的转出数量，对转入而言与amount相等。
 - type 0 转入，1 转出
 - status 1: 待处理 2:确认中 3:待入账 4:已入账 5:已取消(仅转出) 6:处理失败 7:待人工处理
 - status_desc 状态描述
