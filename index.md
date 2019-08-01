@@ -509,7 +509,7 @@ board 交易区，可选。目前只有cny交易区。
 - ecode 邮箱验证码；
 - mobile 手机号，与mcode配合使用；
 - mcode 手机验证码；
-- capcha 图片验证码，必须；
+- captcha 图片验证码，必须；
 - password 新密码，必须；
 - repassword 重新新密码，必须；
 
