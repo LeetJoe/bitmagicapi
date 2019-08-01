@@ -672,15 +672,34 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 ```
 
 {
-    "status":0,
-    "msg":"success",
-    "data": [1, 4]]
+    "status": 0,
+    "data": {
+        "dir": [
+            {
+                "uid": "10006",
+                "pid": "10001",
+                "realname": "李**",
+                "level": "C0",
+                "created": "2019-06-28 06:58:53"
+            }
+        ],
+        "indir": [
+            {
+                "uid": "10008",
+                "pid": "10001",
+                "realname": "王**",
+                "level": "C2",
+                "created": "2019-06-28 06:58:53"
+            }
+        ]
+    }
 }
 
 ```
 
 返回说明：
--data  data[0] 表示直接邀请人数，data[1] 表示间接邀请人数
+- dir 表示直接邀请人列表
+- indir 表示间接邀请人列表
 
 
 ### 15. 获取活动收益记录
