@@ -576,7 +576,9 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
                 "etime":"0",
                 "remark":null,
                 "created":"1561817696",
-                "updated":"0"
+                "updated":"0",
+                "type_desc": "类型描述",
+                "status_desc": "状态描述"
             },
             {
                 "id":"1",
@@ -588,7 +590,9 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
                 "etime":"0",
                 "remark":null,
                 "created":"1561817620",
-                "updated":"0"
+                "updated":"0",
+                "type_desc": "类型描述",
+                "status_desc": "状态描述"
             }
         ],
         "next":1,
@@ -605,7 +609,7 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 
 返回数据说明：（基本同上，区别如下）
 - type: 0 交易返佣，1 锁定释放，2 锁定释放-直接邀请人，3 锁定释放-间接邀请人 10 交易返佣-直接邀请人 11 交易返佣-间接邀请人
-- status: 
+- status: 0 待处理，1 已完成
 
 
 ### 13. c2c与币币账户间的转币记录
