@@ -11,7 +11,7 @@
 参数说明：
 - board 交易区
 - coin 币种
-- targetid 交易目标挂单id
+- targetid 交易目标挂单id，只有定向吃单的时候才有用。
 - type 类型，0 买 1 卖
 - paytype 支付类型，1 => 银行卡，2 => 支付宝，4 => 微信；5 = 1 + 4 表示支付银行卡与微信
 - number 数量
@@ -194,7 +194,8 @@
             "wechat_img":"http://testapi.bitmagic.pro/payinfo/image/317575fc3e99eba11ef8ccc001dd59d4/wechat.gif",
             "alipay_img":"http://testapi.bitmagic.pro/payinfo/image/317575fc3e99eba11ef8ccc001dd59d4/alipay.gif",
             "bank":"某某某银行",
-            "bank_code":"4444444444444444"
+            "bank_code":"4444444444444444",
+            "mate_mobile":""
         }
     ]
 }
@@ -228,6 +229,7 @@
 - alipay_img 支付宝二维码url，需要带token访问
 - bank 银行名
 - bank_code 银行卡号
+- mate_mobile 对方的手机号，只有买方确认付款后，半小时对方仍未确认收款的情况下，才不为空，否则内容为空。客户端可以简单处理为：如果mate_mobile为空则不展示，如果不为空，则展示。
 
 ### 7. 我的历史成交列表
 
