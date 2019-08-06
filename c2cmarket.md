@@ -290,3 +290,55 @@
 
 
 ```
+
+### 8. 我的成交详情
+
+#### uri: /web/apic2cmarket/dealinfo
+
+#### method: post
+
+参数说明：
+- board 交易区，目前cny
+- coin 币种，目前都是usdt
+- id 成交id
+
+
+返回示例
+
+```
+
+{
+    "status":0,
+    "data":
+    {
+        "id":"2",
+        "amount":"13780.00000000",
+        "price":"6.8900",
+        "number":"2000.0000",
+        "paytype":"1",
+        "status":"1",
+        "complain":"0",
+        "taker":"0",
+        "bid_tid":"16",
+        "bid_uid":"10001",
+        "bid_fee":"0.0000000000",
+        "ask_tid":"11",
+        "ask_uid":"10002",
+        "ask_fee":"0.0000000000",
+        "paytime":1561711336000,
+        "confirmtime":"0",
+        "created":1561374279000,
+        "updated":"1561711336",
+        "type":0,
+        "type_desc":"买入",
+        "againstuid":"10002",
+        "status_desc":"已支付",
+        "mate_name":"李四",
+        "wechat_img":"http://testapi.bitmagic.pro/payinfo/image/317575fc3e99eba11ef8ccc001dd59d4/wechat.gif",
+        "alipay_img":"http://testapi.bitmagic.pro/payinfo/image/317575fc3e99eba11ef8ccc001dd59d4/alipay.gif",
+        "bank":"某某某银行",
+        "bank_code":"4444444444444444",
+        "mate_mobile":""
+    }
+}
+```
