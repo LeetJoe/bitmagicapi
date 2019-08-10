@@ -17,6 +17,7 @@
             "uid": "100",
             "title": "注册送币活动开始啦！！！！",
             "url": "http://www.xxxxx.com",
+            "article_id": 0,
             "img": "3",
             "lang": "",
             "weight": "0",
@@ -32,6 +33,7 @@
             "uid": "100",
             "title": "注册送币活动开始啦！！！",
             "url": "http://www.xxxxxx.com",
+            "article_id": 0,
             "img": "2",
             "lang": "",
             "weight": "0",
@@ -47,6 +49,7 @@
             "uid": "100",
             "title": "注册送币活动开始啦！！",
             "url": "http://www.xxxxx.com",
+            "article_id": 0,
             "img": "1",
             "lang": "",
             "weight": "0",
@@ -61,6 +64,10 @@
 }
 
 ```
+
+返回说明：
+- article_id 如果这个字段不为0，表示文章是内部文章，前端自行决定如果跳转及展示（调用/web/apiad/view接口获取内容）；
+- url 如果article_id为0，表示是外部文章，直接通过webview方式打开即可。
 
 ### 2. 获取公告列表
 #### 请求地址：/web/apiad/getOfficeList 
