@@ -347,3 +347,36 @@
     }
 }
 ```
+
+### 9. 获取商户成交统计信息
+
+#### uri: /web/apic2cmarket/merchantInfo
+
+#### **请求方式：**post
+
+请求参数
+- board 交易区，通常是cny
+- coin 交易币种，目前只有usdt
+- uid 用户uid
+
+
+返回示例
+
+```
+
+{
+    "status": 0,
+    "data": {
+        "num": 15,
+        "time": "11秒",
+        "ptime": 580423
+    }
+}
+
+```
+
+返回说明
+
+- num 历史成交笔数
+- time 平均成交用时
+- ptime 暂时没用
