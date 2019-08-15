@@ -469,7 +469,9 @@
         "level":3,
         "verify":null,
         "usertype":null,
-        "bound":null
+        "bound":null,
+        "idtype": 1,
+        "idnumber: "370******738"
     }
 }
 
@@ -490,6 +492,8 @@
 - verify 实名认证状态，表示 level 当前等级下一级的认证进度，null 表示未提交认证，0 表示正在审核中，1 表示认证成功，2 表示认证被驳回
 - usertype c2c用户身份，1 表示普通用户，2 表示商家。
 - bound 用户已设置的收款方式。1 银行卡， 2 支付宝， 4 微信。 bound = 5 = 1 + 4 表示同时设置了银行卡和微信支付
+- idtype 用户初级认证类型，1表示身份证，2表示护照，0表示未认证
+- idnumber 打码的身份证号
 
 
 
