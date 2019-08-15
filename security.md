@@ -471,7 +471,9 @@
         "usertype":null,
         "bound":null,
         "idtype": 1,
-        "idnumber: "370******738"
+        "idnumber: "370******738",
+        "realname": "王*",
+        "nation": "阿拉伯联合酋长国"
     }
 }
 
@@ -494,6 +496,8 @@
 - bound 用户已设置的收款方式。1 银行卡， 2 支付宝， 4 微信。 bound = 5 = 1 + 4 表示同时设置了银行卡和微信支付
 - idtype 用户初级认证类型，1表示身份证，2表示护照，0表示未认证
 - idnumber 打码的身份证号
+- realname 打码的真实姓名
+- nation 初级实名认证时所选择的国家
 
 
 
