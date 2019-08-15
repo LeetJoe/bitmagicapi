@@ -339,7 +339,9 @@
         "againstuid":"10002",
         "status_desc":"已支付",
         "mate_name":"李四",
+        "wechatid":"xxxxx",
         "wechat_img":"http://testapi.bitmagic.pro/payinfo/image/317575fc3e99eba11ef8ccc001dd59d4/wechat.gif",
+        "alipay":"xxxxxxx",
         "alipay_img":"http://testapi.bitmagic.pro/payinfo/image/317575fc3e99eba11ef8ccc001dd59d4/alipay.gif",
         "bank":"某某某银行",
         "bank_code":"4444444444444444",
@@ -358,6 +360,8 @@
 - board 交易区，通常是cny
 - coin 交易币种，目前只有usdt
 - uid 用户uid
+- wechatid 微信号
+- alipay 支付宝账号
 
 
 返回示例
