@@ -81,7 +81,9 @@ status已定义值说明
 - /web/index/coins, 币种列表
 - /web/index/boards, 交易区列表
 - /web/index/coinconf/board/{board}/coin/{coin}, 交易对配置信息
-- /web/index/ticker/{market}, 实时牌价
+- /web/index/ticker/board/{market}, 实时牌价
+- /web/index/keyticker/board/{market}, 实时牌价
+- /web/index/tickerrank, 涨跌幅排序
 - /web/index/c2cticker, c2c实时牌价
 - /web/index/banklist, 银行列表
 - /web/index/findpw, 找回密码
