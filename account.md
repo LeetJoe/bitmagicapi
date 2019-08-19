@@ -95,7 +95,7 @@
     "status":0,
     "msg":"success",
     "data":
-    {
+    [
         {
             "uid":"10004",
             "balance":"10000.0000",
@@ -135,7 +135,7 @@
             "rate":"0.001",
             "coin":"USDT",
         }
-    }
+    ]
 }
 
 // 当指定了type时，只返回type指定的资产信息. type = c2c
