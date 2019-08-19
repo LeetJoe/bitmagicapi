@@ -31,7 +31,7 @@
 
 参数说明：
 - coin 币种
-- address 地址
+- address 地址。示例地址：btc(usdt) => 3NoyBq6WGZZCf1vWpppE9JyNhmupMH4i1M [区分大小写], eth(zyc) => 0xd33577609F71Eeb9e72B8B077590f50F9cbbCe0A [不区分大小写]
 - remark 地址备注，不要超过10个字
 - assettoken 资金密码
 - ga 如果绑定了ga需要输入
