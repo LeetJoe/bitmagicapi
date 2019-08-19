@@ -1128,3 +1128,21 @@ board 交易区，可选。目前只有cny交易区。
 }
 
 ```
+
+
+### 13. 生成二维码
+
+#### uri: /web/index/getQrImage/str/{str}
+
+#### method: get
+
+参数说明：
+- str 参数为base64编码后的内容。str的长度不能超过256.
+
+请求示例：
+原始串：Hello, world!*$%^$%^&&^&
+base64编码后：SGVsbG8sIHdvcmxkISokJV4kJV4mJl4m
+请求：{base_url}/web/index/getQrImage/str/SGVsbG8sIHdvcmxkISokJV4kJV4mJl4m
+即可得到二维码。
+
+返回示例：略
