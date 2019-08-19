@@ -261,6 +261,7 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
         "alipay":"a***c@a***c.com",
         "askrate":"-1.00000",
         "askratelevel":"0",
+        "bankid":2,
         "bank":"某某某银行",
         "bidrate":"-1.00000",
         "bidratelevel":"0",
@@ -285,6 +286,8 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 - bidratelevel 买入费率等级
 - binding 启用的支付方式（暂不用）
 - bound 已设置的支付方式，1表示银行，2表示支付宝，4表示微信。3 = 1 + 2 表示同时绑定了银行卡和支付宝
+- bankid 银行id（内部id）
+- bank 银行名称
 - branch 支行名称
 - card 银行卡号
 - ctype 用户类型，1表示普通用户，2表示商户。商户可以定价，普通用户只能以市场价下单
