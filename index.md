@@ -1141,8 +1141,12 @@ board 交易区，可选。目前只有cny交易区。
 
 请求示例：
 原始串：Hello, world!*$%^$%^&&^&
+
 base64编码后：SGVsbG8sIHdvcmxkISokJV4kJV4mJl4m
+
 请求：{base_url}/web/index/getQrImage/str/SGVsbG8sIHdvcmxkISokJV4kJV4mJl4m
+
 即可得到二维码。
+
 
 返回示例：略
