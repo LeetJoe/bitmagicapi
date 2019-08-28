@@ -34,7 +34,31 @@
 - deposit_lock: 定存账户锁定
 
 
-### 2. 定存账户向商城账户划转
+### 2. 发起定存
+
+#### uri: /web/apiaccount/deposit
+
+#### method: post
+
+参数说明：
+- number 数量
+- assettoken 资金密码
+
+
+返回数据示例：
+
+```
+
+{
+    "status":0
+}
+
+```
+
+返回数据说明：(略)
+
+
+### 3. 定存账户向商城账户划转
 
 #### uri: /web/apiaccount/transfer
 
@@ -60,7 +84,7 @@
 返回数据说明：(略)
 
 
-### 3. 账户划转记录
+### 4. 账户划转记录
 
 #### uri: /web/apiaccount/transferlist
 
@@ -76,7 +100,7 @@
 
 
 
-### 4. 获取邀请数量
+### 5. 获取邀请数量
 
 #### uri: /web/apiaccount/getInviteInfo
 
@@ -120,7 +144,7 @@
 
 
 
-### 5. 定存释放记录
+### 6. 定存释放记录
 
 #### uri: /web/apiaccount/getReleaseList
 

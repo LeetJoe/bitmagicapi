@@ -88,6 +88,7 @@ status已定义值说明
 
 #### account
 - /web/apiaccount/list, 用户资产-获取。用于用户的资产页面，展示用户所有资产信息。
+- /web/apiaccount/deposit, 发起定存
 - /web/apiaccount/transfer, 账户间划转
 - /web/apiaccount/transferlist, 账户间划转记录
 - /web/apiaccount/getInviteInfo, 获取邀请信息
