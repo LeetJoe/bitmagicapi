@@ -94,9 +94,40 @@
 - cur 页码
 
 ```
-// todo
+{
+    "status": 0,
+    "msg": "success",
+    "data": {
+        "page": [
+            {
+                "id": "1",
+                "uid": "10002",
+                "type": "0",
+                "status": "1",
+                "number": "200.00000000",
+                "created": "1973-11-29 17:12:21",
+                "createip": "0.18.212.214",
+                "updated": "0",
+                "updateip": "0",
+                "type_desc": "转入",
+                "status_desc": "划转完成"
+            }
+        ],
+        "next": 1,
+        "before": 1,
+        "last": 1,
+        "current": 1,
+        "totalItems": "1",
+        "totalPages": 1
+    }
+}
 
 ```
+
+参数说明：
+- type 0表示转入，1表示转出。实际上只有1；
+- status 0:新建，1:完成，2:撤销，3:失败；直接使用status_desc即可；
+- number 划转数量；
 
 
 
