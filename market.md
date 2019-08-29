@@ -94,6 +94,15 @@
 }
 ```
 
+返回说明：
+- category 是否市价单，0否1是
+- amount 仅市价单有意义，目前没用
+- deal 实际成交额，仅市价单有意义，目前没用
+- total 总挂单量
+- remain 挂单剩余量
+- type 买卖类型，0买1卖
+- status 状态，前端直接使用status_desc即可。0：新建（列表中不展示），1：交易中，2：已成交，3：已撤销
+
 
 ### 4.我的成交列表
 #### 请求url: /web/apimarket/deallist
@@ -131,12 +140,14 @@
         totalItems: "0", 
         totalPages: 1
     }
-    before: 1
-    current: 1
-    last: 1
-    next: 1
-    page: []
-    totalItems: "0"
-    totalPages: 1
 }
 ```
+
+返回说明：
+- taker 吃单方，0表示买家吃单，1表示卖家吃单
+- bid_tid 买方挂单id
+- bid_uid 买方uid
+- ask_tid 卖方挂单id
+- ask_uid 卖方uid
+- bid_fee 买方手续费
+- ask_fee 卖方手续费
