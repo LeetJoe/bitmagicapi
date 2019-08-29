@@ -204,3 +204,79 @@
 
 返回数据说明：（基本同上，区别如下）
 - status: 0 待处理，1 已完成
+
+
+### 7. 定存记录
+
+#### uri: /web/apiaccount/depositList
+
+#### method: post
+
+参数说明：
+- cur 页码
+
+```
+{
+    "status": 0,
+    "msg": "success",
+    "data": {
+        "page": [
+            {
+                "id": "3",
+                "uid": "10002",
+                "type": "1",
+                "number": "300.000000000000",
+                "remain": "298.500000000000",
+                "status": "0",
+                "created": "2019-08-04 07:00:55",
+                "createip": "123.123.123.123",
+                "updated": "1564873353",
+                "updateip": "0.0.0.0",
+                "type_desc": "首轮定存",
+                "status_desc": "释放中"
+            },
+            {
+                "id": "2",
+                "uid": "10002",
+                "type": "1",
+                "number": "500.000000000000",
+                "remain": "500.000000000000",
+                "status": "0",
+                "created": "2019-08-04 05:30:11",
+                "createip": "123.123.123.123",
+                "updated": "0",
+                "updateip": "0.0.0.0",
+                "type_desc": "首轮定存",
+                "status_desc": "释放中"
+            },
+            {
+                "id": "1",
+                "uid": "10002",
+                "type": "1",
+                "number": "500.000000000000",
+                "remain": "500.000000000000",
+                "status": "0",
+                "created": "2019-08-04 05:29:41",
+                "createip": "123.123.123.123",
+                "updated": "0",
+                "updateip": "0.0.0.0",
+                "type_desc": "首轮定存",
+                "status_desc": "释放中"
+            }
+        ],
+        "next": 1,
+        "before": 1,
+        "last": 1,
+        "current": 1,
+        "totalItems": "3",
+        "totalPages": 1
+    }
+}
+
+```
+
+返回说明：
+- type 类型，0:空投定存，1:首轮定存，2:二轮定存。展示时可以直接使用type_desc；
+- status 状态，0:进行中，1:已完成
+- number 数量
+- remain 剩余数量
