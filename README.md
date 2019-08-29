@@ -40,6 +40,168 @@ status已定义值说明
 {TOKEN}是在登录成功时返回的口令。
 
 
+### 关于各类验证码验证问题的说明
+
+这里的验证码包括：手机验证码、邮箱验证码、图片验证码。
+
+以手机验证码为例，在登录时，请求手机验证码，会返回一个名为 **BMHELLOID** 的cookie，如下所示：
+
+```
+
+curl -v -X POST testapi.bitmagic.pro/web/apilogin/sendsmscode -d "type=vcode&mobile=13001068532"
+
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 104.31.77.59...
+* TCP_NODELAY set
+* Connected to testapi.bitmagic.pro (104.31.77.59) port 80 (#0)
+> POST /web/apilogin/sendsmscode HTTP/1.1
+> Host: testapi.bitmagic.pro
+> User-Agent: curl/7.54.0
+> Accept: */*
+> Content-Length: 29
+> Content-Type: application/x-www-form-urlencoded
+>
+* upload completely sent off: 29 out of 29 bytes
+< HTTP/1.1 200 OK
+< Date: Thu, 29 Aug 2019 10:10:07 GMT
+< Content-Type: application/json; charset=UTF-8
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Set-Cookie: __cfduid=dadf8547396d045eaa478802919825d711567073407; expires=Fri, 28-Aug-20 10:10:07 GMT; path=/; domain=.bitmagic.pro; HttpOnly
+< Set-Cookie: BMHELLOID=ogs03m8l1949g2gu6s6o0ap7k3; path=/
+< Expires: Thu, 19 Nov 1981 08:52:00 GMT
+< Cache-Control: no-store, no-cache, must-revalidate
+< Pragma: no-cache
+< Access-Control-Allow-Origin: http://test.bitmagic.pro
+< Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, token
+< Access-Control-Allow-Methods: GET, POST, OPTIONS
+< Access-Control-Allow-Credentials: true
+< Server: cloudflare
+< CF-RAY: 50ddbbbdba4899ad-LAX
+<
+* Connection #0 to host testapi.bitmagic.pro left intact
+{"status":0,"msg":"\u53d1\u9001\u6210\u529f"}
+
+
+# 验证示例
+
+curl -v -X POST testapi.bitmagic.pro/web/apilogin/codelogin -d "mobile=13001068532&password=12345678&code=123456" --cookie "BMHELLOID=ogs03m8l1949g2gu6s6o0ap7k3"
+
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 104.31.77.59...
+* TCP_NODELAY set
+* Connected to testapi.bitmagic.pro (104.31.77.59) port 80 (#0)
+> POST /web/apilogin/codelogin HTTP/1.1
+> Host: testapi.bitmagic.pro
+> User-Agent: curl/7.54.0
+> Accept: */*
+> Cookie: BMHELLOID=ogs03m8l1949g2gu6s6o0ap7k3
+> Content-Length: 48
+> Content-Type: application/x-www-form-urlencoded
+>
+* upload completely sent off: 48 out of 48 bytes
+< HTTP/1.1 200 OK
+< Date: Thu, 29 Aug 2019 10:17:16 GMT
+< Content-Type: application/json; charset=UTF-8
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Set-Cookie: __cfduid=de062994209a5f79de79215db18f43b271567073835; expires=Fri, 28-Aug-20 10:17:15 GMT; path=/; domain=.bitmagic.pro; HttpOnly
+< Expires: Thu, 19 Nov 1981 08:52:00 GMT
+< Cache-Control: no-store, no-cache, must-revalidate
+< Pragma: no-cache
+< Access-Control-Allow-Origin: http://test.bitmagic.pro
+< Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, token
+< Access-Control-Allow-Methods: GET, POST, OPTIONS
+< Access-Control-Allow-Credentials: true
+< Server: cloudflare
+< CF-RAY: 50ddc631f9ab41b5-SJC
+<
+* Connection #0 to host testapi.bitmagic.pro left intact
+{"status":1,"msg":"\u7528\u6237\u540d\u6216\u5bc6\u7801\u9519\u8bef"}
+
+
+```
+
+> 
+
+在进行后续验证的时候，需要带上这个cookie，服务器才能把发送行为与验证行为关联起来，从而验证成功；如果两次cookie不一致，无法完成验证。
+
+图片验证码也是一样的，如下：
+
+```
+
+curl -v testapi.bitmagic.pro/web/index/imgcode
+*   Trying 104.31.77.59...
+* TCP_NODELAY set
+* Connected to testapi.bitmagic.pro (104.31.77.59) port 80 (#0)
+> GET /web/index/imgcode HTTP/1.1
+> Host: testapi.bitmagic.pro
+> User-Agent: curl/7.54.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Thu, 29 Aug 2019 10:09:23 GMT
+< Content-Type: image/png
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Set-Cookie: __cfduid=ddef51afed572e05046121c6356b3c9651567073363; expires=Fri, 28-Aug-20 10:09:23 GMT; path=/; domain=.bitmagic.pro; HttpOnly
+< Set-Cookie: BMHELLOID=6g1njvvu1veb0e96ru5gsqupr0; path=/
+< Expires: Thu, 19 Nov 1981 08:52:00 GMT
+< Cache-Control: no-store, no-cache, must-revalidate
+< Pragma: no-cache
+< Access-Control-Allow-Origin: http://test.bitmagic.pro
+< Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, token
+< Access-Control-Allow-Methods: GET, POST, OPTIONS
+< Access-Control-Allow-Credentials: true
+< Server: cloudflare
+< CF-RAY: 50ddbaaafded77ca-LAX
+<
+
+```
+
+#### 特别说明
+- 这个cookie正常的管理方式应该是在首次获取后，在本地缓存一周或一个月，然后一直使用它就可以了；
+- 前面的示例仅用于客户端首次与服务器交互，如果本地有这个cookie的缓存，在请求的时候带上它，请求返回就不会设置新的BMHELLOID，使用缓存的就可以。
+
+下面的请求示例如果请求验证时带了 **BMHELLOID** ，就不会返回新的 **BMHELLOID** 。
+
+```
+curl -v -X POST testapi.bitmagic.pro/web/apilogin/sendsmscode -d "type=vcode&mobile=13001068532"  --cookie "BMHELLOID=ogs03m8l1949g2gu6s6o0ap7k3"
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 104.31.77.59...
+* TCP_NODELAY set
+* Connected to testapi.bitmagic.pro (104.31.77.59) port 80 (#0)
+> POST /web/apilogin/sendsmscode HTTP/1.1
+> Host: testapi.bitmagic.pro
+> User-Agent: curl/7.54.0
+> Accept: */*
+> Cookie: BMHELLOID=ogs03m8l1949g2gu6s6o0ap7k3
+> Content-Length: 29
+> Content-Type: application/x-www-form-urlencoded
+>
+* upload completely sent off: 29 out of 29 bytes
+< HTTP/1.1 200 OK
+< Date: Thu, 29 Aug 2019 10:18:55 GMT
+< Content-Type: application/json; charset=UTF-8
+< Transfer-Encoding: chunked
+< Connection: keep-alive
+< Set-Cookie: __cfduid=def9c4481c0a81b02c1d6577a6e964a1b1567073935; expires=Fri, 28-Aug-20 10:18:55 GMT; path=/; domain=.bitmagic.pro; HttpOnly
+< Expires: Thu, 19 Nov 1981 08:52:00 GMT
+< Cache-Control: no-store, no-cache, must-revalidate
+< Pragma: no-cache
+< Access-Control-Allow-Origin: http://test.bitmagic.pro
+< Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept, token
+< Access-Control-Allow-Methods: GET, POST, OPTIONS
+< Access-Control-Allow-Credentials: true
+< Server: cloudflare
+< CF-RAY: 50ddc8a28e096dfa-SJC
+<
+* Connection #0 to host testapi.bitmagic.pro left intact
+{"status":0,"msg":"\u53d1\u9001\u6210\u529f"}
+
+```
+
+
 ### 接口一览：
 #### account
 - /web/apiaccount/list, 用户资产-获取。用于用户的资产页面，展示用户所有资产信息。
