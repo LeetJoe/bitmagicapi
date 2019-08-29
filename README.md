@@ -255,6 +255,7 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 - /web/index/outlimit, 获取提币限额
 - /web/index/coininfo, 获取币种配置/信息
 - /web/index/cnyrate, 获取各币种人民币汇率
+- /web/index/zyctime 获取zyc活动时间
 
 #### login
 - /web/apilogin/register, 用户注册

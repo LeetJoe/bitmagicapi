@@ -1150,3 +1150,29 @@ base64编码后：SGVsbG8sIHdvcmxkISokJV4kJV4mJl4m
 
 
 返回示例：略
+
+
+### 14. zyc活动时间获取
+
+#### uri: /web/index/zyctime
+
+#### method: get/post
+
+```
+{
+    "status": 0,
+    "data": {
+        "start_date": "2019-01-01",
+        "end_date": "2029-01-01",
+        "start_time": "08:00:00",
+        "end_time": "23:00:00"
+    }
+}
+
+```
+
+返回说明：
+- start_date 活动开始日期
+- end_date 活动结束日期
+- start_time 开始时间
+- end_time 结束时间
