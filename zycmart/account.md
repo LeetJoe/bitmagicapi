@@ -189,52 +189,44 @@
 
 ```
 {
-    "status":0,"msg":
-    {
-        "page":[
+    "status": 0,
+    "data": {
+        "page": [
             {
-                "id":"2",
-                "uid":"10001",
-                "type":"0",
-                "status":"1",
-                "number":"5.000800000000000000",
-                "stime":"0",
-                "etime":"0",
-                "remark":null,
-                "created":"1561817696",
-                "updated":"0",
-                "type_desc": "类型描述",
-                "status_desc": "状态描述"
-            },
-            {
-                "id":"1",
-                "uid":"10001",
-                "type":"0",
-                "status":"1",
-                "number":"5.000800000000000000",
-                "stime":"0",
-                "etime":"0",
-                "remark":null,
-                "created":"1561817620",
-                "updated":"0",
-                "type_desc": "类型描述",
-                "status_desc": "状态描述"
+                "id": "1",
+                "uid": "10002",
+                "did": "3",
+                "pdid": "0",
+                "type": "1",
+                "category": "1",
+                "rate": "0.005000",
+                "number": "1.500000000000",
+                "rdate": "20190804",
+                "created": "2019-08-04 07:02:33",
+                "category_desc": "日常释放",
+                "type_desc": "首轮定存"
             }
         ],
-        "next":1,
-        "before":1,
-        "last":1,
-        "current":1,
-        "totalItems":"2",
-        "totalPages":1
+        "next": 1,
+        "before": 1,
+        "last": 1,
+        "current": 1,
+        "totalItems": "1",
+        "totalPages": 1
     }
 }
 
-
 ```
 
-返回数据说明：（基本同上，区别如下）
-- status: 0 待处理，1 已完成
+返回数据说明：
+- category 种类，1:日常释放，2:邀请定存释放，3:邀请空投释放。前端展示可以直接使用category_desc；
+- type 类型，对应的定存的类型，0:空投定存，1:首轮定存，2:二轮定存。展示时可以直接使用type_desc；
+- did 对应的定存的id；
+- pdid 父级定存id，在邀请定存释放时，表示关联定存的id；
+- rate 释放比例
+- number 数量
+- created 创建时间
+
 
 
 ### 7. 定存记录
