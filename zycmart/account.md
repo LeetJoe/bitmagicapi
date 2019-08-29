@@ -41,7 +41,7 @@
 #### method: post
 
 参数说明：
-- number 数量
+- number 数量，只能是100的整数倍
 - assettoken 资金密码
 
 
