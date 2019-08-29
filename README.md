@@ -122,9 +122,7 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 
 ```
 
-> 
-
-在进行后续验证的时候，需要带上这个cookie，服务器才能把发送行为与验证行为关联起来，从而验证成功；如果两次cookie不一致，无法完成验证。
+> 在进行后续验证的时候，需要带上这个cookie，服务器才能把发送行为与验证行为关联起来，从而验证成功；如果两次cookie不一致，无法完成验证。
 
 图片验证码也是一样的，如下：
 
