@@ -93,4 +93,5 @@ status已定义值说明
 - /web/apiaccount/transferlist, 账户间划转记录
 - /web/apiaccount/getInviteInfo, 获取邀请信息
 - /web/apiaccount/getReleaseList, 获取释放记录
+- /web/apiaccount/depositList, 获取定存记录
 
