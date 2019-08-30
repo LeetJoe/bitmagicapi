@@ -135,7 +135,11 @@
             "rate":"0.001",
             "coin":"USDT",
         }
-    ]
+    ],
+    "extra": {
+        "sumusdt": "82566818.00",
+        "sumcny": "591178416.88"
+    }
 }
 
 // 当指定了type时，只返回type指定的资产信息. type = c2c
@@ -143,7 +147,7 @@
     "status":0,
     "msg":"success",
     "data":
-    {
+    [
         {
             "uid":"10004",
             "balance":"10000.0000",
@@ -153,15 +157,21 @@
             "rate":"0.001",
             "coin":"USDT",
         },
+    ],
+    "extra": {
+        "sumusdt": "82566818.00",
+        "sumcny": "591178416.88"
     }
 }
-
 
 ```
 
 返回数据说明：
 基本同上，指定了账户类型时，返回的balance与lock都是指定账户类型的余额与冻结。
 to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
+- extra 表示额外的数据，这里是相应账户里的总资产折合。type未指定时表示全部，type = c2c时表示c2c账户总资产，type=mine表示挖矿账户，trade表示交易账户；
+- sumusdt 表示折合usdt
+- sumcny 表示折合cny
 
 
 ### 2. 绑定银行卡信息
