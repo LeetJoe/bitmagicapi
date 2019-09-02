@@ -174,6 +174,109 @@ to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
 - sumcny 表示折合cny
 
 
+### 1-2. 用户资产-获取，基本数据同上，返回数据格式有点区别
+
+#### uri: /web/apiaccount/keylistv2
+
+#### method: post
+
+参数说明：
+- type 账户类型。trade：币币账户，mine: 挖矿账户，c2c/otc：otc账户（c2c与otc是同样的含义）。一般而言，币币账户与挖矿账户包含全币种，otc账户只包含otc币种，目前只有usdt。
+
+
+返回数据示例：
+
+```
+// 当未指定type或者type无法识别时
+{
+    "status":0,
+    "msg":"success",
+    "data":
+    {
+        "list":
+        [
+            {
+                "uid":"10004",
+                "balance":"10000.0000",
+                "lock":"0.0000",
+                "toc2c_lock":"0.0000",
+                "fromc2c_lock":"0.0000",
+                "c2c_balance":"0.0000",
+                "c2clock":"0.0000",
+                "mine_balance":"0.0000",
+                "mine_lock":"0.0000",
+                "rate":"0.001",
+                "coin":"ETH",
+            },
+            {
+                "uid":"10004",
+                "balance":"9999.9999",
+                "lock":"0.0000",
+                "toc2c_lock":"0.0000",
+                "fromc2c_lock":"0.0000",
+                "c2c_balance":"0.0000",
+                "c2clock":"0.0000",
+                "mine_balance":"0.0000",
+                "mine_lock":"0.0000",
+                "rate":"0.001",
+                "coin":"BTC",
+            },
+            {
+                "uid":"10004",
+                "balance":"99990000.8000",
+                "lock":"0.0000",
+                "toc2c_lock":"0.0000",
+                "fromc2c_lock":"0.0000",
+                "c2c_balance":"0.0000",
+                "c2clock":"0.0000",
+                "mine_balance":"0.0000",
+                "mine_lock":"0.0000",
+                "rate":"0.001",
+                "coin":"USDT",
+            }
+        ],
+        "sum": {
+            "sumusdt": "82566818.00",
+            "sumcny": "591178416.88"
+        }
+    }
+}
+
+// 当指定了type时，只返回type指定的资产信息. type = c2c
+{
+    "status":0,
+    "msg":"success",
+    "data":
+    {
+        "list":
+        [
+            {
+                "uid":"10004",
+                "balance":"10000.0000",
+                "lock":"0.0000",
+                "to_lock":"0.0000",
+                "from_lock":"0.0000",
+                "rate":"0.001",
+                "coin":"USDT",
+            },
+        ],
+        "sum": {
+            "sumusdt": "82566818.00",
+            "sumcny": "591178416.88"
+        }
+    }
+}
+
+```
+
+返回数据说明：
+基本同上，指定了账户类型时，返回的balance与lock都是指定账户类型的余额与冻结。
+to_lock与from_lock同上方接口返回的toc2c_lock与fromc2c_lock.
+- extra 表示额外的数据，这里是相应账户里的总资产折合。type未指定时表示全部，type = c2c时表示c2c账户总资产，type=mine表示挖矿账户，trade表示交易账户；
+- sumusdt 表示折合usdt
+- sumcny 表示折合cny
+
+
 ### 2. 绑定银行卡信息
 
 前置要求：完成初级实名认证，绑定手机号，设置资金密码。
