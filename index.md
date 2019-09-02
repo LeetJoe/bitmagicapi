@@ -1222,3 +1222,22 @@ base64编码后：SGVsbG8sIHdvcmxkISokJV4kJV4mJl4m
 - merchat_maxnumber 商家最大挂单量（单笔）
 - pstep 价格最小精度：0.01 人民币
 - numstep 数量最小精度：0.01 usdt
+
+
+### 16. 获取app当前版本
+
+#### uri: /web/index/appversion/type/{type}
+
+示例：/web/index/appversion/type/ios
+
+#### method: get/post
+
+返回示例：
+
+```
+{
+    "status": 0,
+    "data": "v0.901"
+}
+```
+
