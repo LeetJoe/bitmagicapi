@@ -1176,3 +1176,49 @@ base64编码后：SGVsbG8sIHdvcmxkISokJV4kJV4mJl4m
 - end_date 活动结束日期
 - start_time 开始时间
 - end_time 结束时间
+
+
+### 15. 获取c2c交易对配置
+
+#### uri: /web/index/c2ccoinconf/board/{board}/coin/{coin}
+
+示例：/web/index/c2ccoinconf/board/cny/coin/usdt
+
+#### method: get/post
+
+```
+{
+    "status": 0,
+    "msg": "success",
+    "data": {
+        "id": "5",
+        "key": "usdt",
+        "board": "cny",
+        "decprice": "2",
+        "decnumber": "2",
+        "minprice": "5.000000000000",
+        "maxprice": "9.000000",
+        "minnumber": "50.0000000000",
+        "maxnumber": "6000.000000",
+        "merchant_minnumber": "2000.0000000000",
+        "merchant_maxnumber": "800000.000000",
+        "pstep": "0.0100000000",
+        "numstep": "1.0000000000",
+        "status": "0"
+    }
+}
+```
+
+返回说明：
+- key 即交易币种
+- board 交易区
+- decprice 价格精度
+- decnumber 数量精度
+- minprice 最小价格
+- maxprice 最大价格
+- minnumber 最小挂单量（单笔）
+- maxnumber 最大挂单量（单笔）
+- merchant_minnumber 商家最小挂单量（单笔）
+- merchat_maxnumber 商家最大挂单量（单笔）
+- pstep 价格最小精度：0.01 人民币
+- numstep 数量最小精度：0.01 usdt
