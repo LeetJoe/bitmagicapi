@@ -26,7 +26,10 @@
             "updated": "0",
             "updateip": "0.0.0.0",
             "status": "1",
-            "destroy": "0"
+            "destroy": "0",
+            "article": {
+                  //
+            }
         },
         {
             "id": "3",
@@ -42,7 +45,10 @@
             "updated": "0",
             "updateip": "0.0.0.0",
             "status": "1",
-            "destroy": "0"
+            "destroy": "0",
+            "article": {
+                  //
+            }
         },
         {
             "id": "2",
@@ -58,7 +64,10 @@
             "updated": "0",
             "updateip": "0.0.0.0",
             "status": "1",
-            "destroy": "0"
+            "destroy": "0",
+            "article": {
+                  //
+            }
         }
     ]
 }
@@ -68,6 +77,7 @@
 返回说明：
 - article_id 如果这个字段不为0，表示文章是内部文章，前端自行决定如果跳转及展示（调用/web/apiad/view接口获取内容）；
 - url 如果article_id为0，表示是外部文章，直接通过webview方式打开即可。
+- article 如果使用article_id不方便，可以直接使用article内容，当article_id不为0的时候，article内容为对应的文章的内容。其结构参考下方 **/web/apiad/getOfficeList** 里的item.
 
 ### 2. 获取公告列表
 #### 请求地址：/web/apiad/getOfficeList 
