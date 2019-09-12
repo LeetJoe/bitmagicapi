@@ -111,3 +111,157 @@
     ]
 }
 ```
+
+### 5. 获取提币额度
+
+#### uri: /web/index/outlimit
+
+#### method: post
+
+返回示例：
+
+```
+{
+    "status":0,
+    "data":[
+        {
+            "id":"1",
+            "coin":"zyc",
+            "level":"0",
+            "vip":"0",
+            "single":"0.00",
+            "day":"0.00",
+            "week":"0.00",
+            "month":"0.00",
+            "nation":"0",
+            "status":"0",
+            "updated":"0"
+        },
+        {
+            "id":"2",
+            "coin":"zyc",
+            "level":"1",
+            "vip":"0",
+            "single":"10000.00",
+            "day":"30000.00",
+            "week":"100000.00",
+            "month":"300000.00",
+            "nation":"0",
+            "status":"0",
+            "updated":"0"
+        },
+        {
+            "id":"3",
+            "coin":"zyc",
+            "level":"2",
+            "vip":"0",
+            "single":"50000.00",
+            "day":"150000.00",
+            "week":"500000.00",
+            "month":"1500000.00",
+            "nation":"0",
+            "status":"0",
+            "updated":"0"
+        },
+        {
+            "id":"4",
+            "coin":"zyc",
+            "level":"3",
+            "vip":"0",
+            "single":"50000.00",
+            "day":"200000.00",
+            "week":"1000000.00",
+            "month":"3000000.00",
+            "nation":"0",
+            "status":"0",
+            "updated":"0"
+        }
+    ]
+}
+
+
+```
+
+返回数据说明：
+- coin 币种
+- level 用户认证等级
+- vip 是否vip
+- single 单次限额
+- day 日限额
+- week 周限额
+- month 月限额
+
+
+
+
+### 11. 获取币种配置
+
+#### uri: /web/index/coininfo
+
+#### method: post
+
+参数说明：
+
+```
+
+{
+    "status": 0,
+    "msg": "success",
+    "data": {
+        "key": "zyc",
+        "name": "ZYC",
+        "enname": "zyc",
+        "tokenof": "",
+        "sort": "1",
+        "status": "0",
+        "outstep": "0.0000000000",
+        "minout": "100.0000000000",
+        "outfee": "10.0000000000",
+        "confirmnum": "36",
+        "abstract": "",
+        "form": "0",
+        "explorer": "",
+        "walleturl": "",
+        "mainpage": "",
+        "sourcecode": "",
+        "consensus": "",
+        "whitepaper": "",
+        "feature": "",
+        "shortage": "",
+        "releasedate": "",
+        "planindate": "",
+        "planoutdate": "",
+        "releaseamount": "",
+        "blocktime": ""
+    }
+}
+
+```
+
+返回参数说明：
+- key 币种名称，小写
+- name 币种名称，大写
+- enanme 英文名称
+- tokenof 代币种类，如果不是代币，此字段为空
+- sort 排序权重，数字越小越靠前
+- status 状态，0表示有效，1表示无效。通常能得到数据的都是有效数据
+- outstep 转出步长，转出金额的粒度，转出数量只能是这个数字的倍数，为0的话表示不限制
+- minout 最小转出数量
+- outfee 转出手续费
+- confirmnum 入账确认数量，在转入币时，区块确认数量达到此数值之后才会进入用户可用余额
+- abstract 币种简介
+- form 存在形式，代币或者主链
+- explorer 区块浏览器地址
+- walleturl 钱包下载地址
+- mainpage 项目主页
+- sourcecode 项目源代码
+- consensus 共识类型
+- whitepaper 白皮书地址
+- feature 主要特性
+- shortage 不足之处
+- releasedate 发行日期
+- planindate 计划在平台中开启转入的时间
+- planoutdate 计划在平台中开启转出的时间
+- releaseamount 发行总量
+- blocktime 区块时间
+
