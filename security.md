@@ -513,6 +513,7 @@
 
 参数说明：
 - type 发送类型，见apilogin中sendSmsCode与sendMailCode的说明，这里可以固定使用vcode
+- isvoice 是否语音验证码。不传或者传非1值表示普通短信，传1表示语音验证码
 
 
 返回数据示例
