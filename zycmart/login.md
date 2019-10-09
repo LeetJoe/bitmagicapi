@@ -100,6 +100,7 @@
 参数说明：
 - type 类型，必须；根据场景取值：register:注册, bindphone:绑定手机号, bindmail:绑定邮箱, assettoken:设置交易密码, findpw:找回密码, resetpass:修改登录密码, ressetassettoken:修改交易密码, vcode:其它通用验证场景
 - mobile 手机号，非必须；当非登录状态时，需要此参数；登录状态时，会自动获取用户的手机号；
+- isvoice 是否语音验证码。不传或者传非1值表示普通短信，传1表示语音验证码；
 
 返回数据示例：
 
